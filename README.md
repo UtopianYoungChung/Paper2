@@ -1,16 +1,21 @@
-# Starter folder
+<!-- -*- mode: gfm -*- -->
 
-## Overview
+# The Decline in U.S Birthrates
 
-This repo provides students with a foundation for their own projects associated with *Telling Stories with Data*. You do not need every aspect for every paper and you should delete aspects that you do not need.
+## Summary
 
-To use this folder, click the green "Code" button", then "Download ZIP". Move the downloaded folder to where you want to work on your own computer, and then modify it to suit.
+Reserved.
 
-## File Structure
+### Code
 
-The repo is structured as:
+Reserved.
 
--   `input/data` contains the data sources used in analysis including the raw data.
--   `outputs/data` contains the cleaned dataset that was constructed.
--   `outputs/paper` contains the files used to generate the paper, including the Quarto document and reference bibliography file, as well as the PDF of the paper. 
--   `scripts` contains the R scripts used to simulate, download and clean data.
+### Data
+
+The raw data set was obtained from open source: [Open Data Toronto](https:// ) Data and files used in this paper can be found as described below:
+
+-   [/inputs/data](https://github.com/UtopianYoungChung/Paper2/data/)/ contains 'csv' extensions
+
+-   [/outputs/paper/](https://github.com/UtopianYoungChung/Paper2/outputs/paper) contains 'bib' extension file (bibliography), pdf (Report paper), qmd (Main Quarto)
+
+-   [/scripts/](https://github.com/UtopianYoungChung/Paper2/scripts) contains 'R' extension files (00-download_data, 00-simulation)
