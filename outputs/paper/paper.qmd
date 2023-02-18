@@ -1,13 +1,14 @@
 ---
-title: "My title"
+title: "The post 2007 is causing socialtal issue"
 subtitle: "My subtitle if needed"
 author: 
-  - First author
-  - Another author
-thanks: "Code and data are available at: LINK."
+  - Saigth Kalaichelvam
+  - Yougjo Kim
+  - Joseph Chung
+thanks: "Code and data are available at: https://github.com/UtopianYoungChung/Paper2.git"
 date: "`r Sys.time()`"
 date-format: "D MMMM YYYY"
-abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
+abstract: "This paper examines the causes of the steep decline in the US Birthrate since 2007. Firstly, the paper claims that certain demographic factors have contributed to the US birthrate decline since 2007. Secondly, the paper shows how other factors, such as economics or policy, do not exhibit dramatic change around the same time. Lastly, the paper shows strong evidence that the significant decrease in the US Birthrate during the post-2007 recession is related to the recent cohort of women."
 format: pdf
 number-sections: true
 bibliography: references.bib
@@ -22,12 +23,11 @@ library(tidyverse)
 library(palmerpenguins)
 ```
 
-
 # Introduction
 
-You can and should cross-reference sections and sub-sections. For instance, @sec-data and @sec-first-point. 
+We need Figure 1, Figure 2 - A & B, Table 1, Figure 4, and Figure 5 to show the evidence for our claim.
 
-
+You can and should cross-reference sections and sub-sections. For instance, @sec-data and @sec-first-point.
 
 # Data {#sec-data}
 
@@ -67,9 +67,7 @@ ggplot(penguins, aes(x = island, fill = species)) +
   coord_flip()
 ```
 
-Talk way more about it. 
-
-
+Talk way more about it.
 
 # Model
 
@@ -79,10 +77,9 @@ $$ {#eq-bayes}
 
 @eq-bayes seems useful, eh?
 
-Here's a dumb example of how to use some references: In paper we run our analysis in `R` [@citeR]. We also use the `tidyverse` which was written by @thereferencecanbewhatever If we were interested in baseball data then @citeLahman could be useful. 
+Here's a dumb example of how to use some references: In paper we run our analysis in `R` [@citeR]. We also use the `tidyverse` which was written by @thereferencecanbewhatever If we were interested in baseball data then @citeLahman could be useful.
 
 We can use maths by including latex between dollar signs, for instance $\theta$.
-
 
 # Results
 
@@ -90,7 +87,7 @@ We can use maths by including latex between dollar signs, for instance $\theta$.
 
 ## First discussion point {#sec-first-point}
 
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this. 
+If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this.
 
 ## Second discussion point
 
@@ -104,15 +101,10 @@ Weaknesses and next steps should also be included.
 
 \appendix
 
-# Appendix {-}
-
+# Appendix {.unnumbered}
 
 # Additional details
 
-
 \newpage
 
-
 # References
-
-
