@@ -1,5 +1,5 @@
 ---
-title: "The post 2007 turning point in US birth rates implies significant societal shifts in the USA."
+title: "The Post-2007 Declining U.S. Birth Rates imply Significant Societal Shifts in the U.S."
 author: 
   - Sagith Kalaichelvam
   - Youngho Kim
@@ -7,7 +7,7 @@ author:
 thanks: "Code and data are available at: https://github.com/UtopianYoungChung/Paper2.git"
 date: "`r Sys.time()`"
 date-format: "D MMMM YYYY"
-abstract: "This paper examines the causes of the drastic decline in the US birthrate after 2007. The paper shows that the decline can be seen across many groups of women, the demographic factors contributing to the decline in the US birthrate since 2007. In this paper, we argue that other factors, such as economic and political factors, do not account for the drastic decline in the US birthrate. The paper concludes with strong evidence showing that the substantial decline in the US birthrate following the 2007  recession is caused by cohort effects rather than period effects."
+abstract: "This paper explores several factors of the steep decline in birth rates in the United States between 2007 and 2020. The decline in U.S. birth rates offers some significant insights into U.S. society. Changes in birth patterns among recent young adult women moving through the childbearing age group can be directly related to the decline in birth rate from a purely statistical standpoint. In this paper, we decompose the decline in birth rates into between - and within - demographic groups. We then argue that any other economic, policy or social factor that has changed since 2007 does not contribute much to the decline. We also provide evidence that the steep drop in birth rates could be attributed to recent young adults' shifting interests. These shifting priorities represent changes in young adults' preferences regarding having children and aspirations for life. Resonating with the original paper, we conclude with a brief discussion of the implications of the declining birth rate in the United States and its impact on society as an entirety."
 format: pdf
 number-sections: true
 bibliography: references.bib
@@ -20,6 +20,8 @@ bibliography: references.bib
 
 library(tidyverse)
 library(palmerpenguins)
+library(knitr)
+library(ggplot2)
 ```
 
 # Introduction
@@ -30,11 +32,11 @@ You can and should cross-reference sections and sub-sections. For instance, @sec
 
 # Data {#sec-data}
 
-Our data is of penguins (@fig-bills).
+Figure 1. place it here with the Figure 1 from the Original paper (@fig-bills).
 
 ```{r}
 #| label: fig-bills
-#| fig-cap: Bills of penguins
+#| fig-cap: Trend in US Birth Rates
 #| echo: false
 
 ggplot(penguins, aes(x = island, fill = species)) +
@@ -48,11 +50,18 @@ ggplot(penguins, aes(x = island, fill = species)) +
 
 Talk more about it.
 
-Also bills and their average (@fig-billssssss). (You can change the height and width, but don't worry about doing that until you have finished every other aspect of the paper - Quarto will try to make it look nice and the defaults usually work.)
+Table 1. place it here with the table 1 from the Original paper
 
 ```{r}
-#| label: fig-billssssss
-#| fig-cap: More bills of penguins
+
+
+```
+
+Figure 2. place it here with the Figure 4 from the Original paper (@fig-billss).
+
+```{r}
+#| label: fig-billss
+#| fig-cap: Relationship between Changes in Birth Rates 2004-2008 to 2014-2019
 #| echo: false
 #| fig-width: 8
 #| fig-height: 4
@@ -67,6 +76,43 @@ ggplot(penguins, aes(x = island, fill = species)) +
 ```
 
 Talk way more about it.
+
+Figure 3. place it here with the Figure 2-a from the Original paper
+
+```{r}
+#| label: fig-billsss
+#| fig-cap: Trends in Birth Rates by Population subgroup Five-year age group
+#| echo: false
+#| fig-width: 8
+#| fig-height: 4
+
+ggplot(penguins, aes(x = island, fill = species)) +
+  geom_bar(alpha = 0.8) +
+  scale_fill_manual(values = c("darkorange","purple","cyan4"),
+                    guide = "none") +
+  theme_minimal() +
+  facet_wrap(~species, ncol = 1) +
+  coord_flip()
+```
+
+Figure 4. place it here with the Figure 5 from the Original paper
+```{r}
+#| label: fig-billssss
+#| fig-cap: Children Ever Born by Mother's Age and Birth Cohort
+#| echo: false
+#| fig-width: 8
+#| fig-height: 4
+
+ggplot(penguins, aes(x = island, fill = species)) +
+  geom_bar(alpha = 0.8) +
+  scale_fill_manual(values = c("darkorange","purple","cyan4"),
+                    guide = "none") +
+  theme_minimal() +
+  facet_wrap(~species, ncol = 1) +
+  coord_flip()
+
+```
+
 
 # Model
 
