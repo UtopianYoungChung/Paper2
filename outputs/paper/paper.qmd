@@ -1,14 +1,13 @@
 ---
-title: "The post 2007 is causing socialtal issue"
-subtitle: "My subtitle if needed"
+title: "The post 2007 turning point in US birth rates implies significant societal shifts in the USA."
 author: 
-  - Saigth Kalaichelvam
-  - Yougjo Kim
+  - Sagith Kalaichelvam
+  - Youngho Kim
   - Joseph Chung
 thanks: "Code and data are available at: https://github.com/UtopianYoungChung/Paper2.git"
 date: "`r Sys.time()`"
 date-format: "D MMMM YYYY"
-abstract: "This paper examines the causes of the steep decline in the US Birthrate since 2007. Firstly, the paper claims that certain demographic factors have contributed to the US birthrate decline since 2007. Secondly, the paper shows how other factors, such as economics or policy, do not exhibit dramatic change around the same time. Lastly, the paper shows strong evidence that the significant decrease in the US Birthrate during the post-2007 recession is related to the recent cohort of women."
+abstract: "This paper examines the causes of the drastic decline in the US birthrate after 2007. The paper shows that the decline can be seen across many groups of women, the demographic factors contributing to the decline in the US birthrate since 2007. In this paper, we argue that other factors, such as economic and political factors, do not account for the drastic decline in the US birthrate. The paper concludes with strong evidence showing that the substantial decline in the US birthrate following the 2007  recession is caused by cohort effects rather than period effects."
 format: pdf
 number-sections: true
 bibliography: references.bib
