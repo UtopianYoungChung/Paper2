@@ -35,17 +35,19 @@ You can and should cross-reference sections and sub-sections. For instance, @sec
 Figure 1. place it here with the Figure 1 from the Original paper (@fig-bills).
 
 ```{r}
-#| label: fig-bills
-#| fig-cap: Trend in US Birth Rates
-#| echo: false
-
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = "none") +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
+fig1_data <- read.csv("data/fig_1.csv")
+fig1_data %>%
+  ggplot(aes(x = year,
+             y = brate_all)) +
+  geom_line() +
+  scale_y_continuous(limits = c(50, 80), breaks = seq(50, 80, by = 5)) +
+  labs(
+    title = "Trend in US Birth Rates",
+    x = "Years",
+    y = "Births per 1,000 women age 15-44",
+    caption = "Source: Birth Rates collected from CDC Vital Statistics Births Reports for 2015, 2019 and 2020."
+  )  +
+  theme_light()
 ```
 
 Talk more about it.
@@ -75,10 +77,7 @@ ggplot(penguins, aes(x = island, fill = species)) +
   coord_flip()
 ```
 
-Talk way more about it.
-
 Figure 3. place it here with the Figure 2-a from the Original paper
-
 ```{r}
 #| label: fig-billsss
 #| fig-cap: Trends in Birth Rates by Population subgroup Five-year age group
@@ -112,19 +111,6 @@ ggplot(penguins, aes(x = island, fill = species)) +
   coord_flip()
 
 ```
-
-
-# Model
-
-$$
-Pr(\theta | y) = \frac{Pr(y | \theta) Pr(\theta)}{Pr(y)}
-$$ {#eq-bayes}
-
-@eq-bayes seems useful, eh?
-
-Here's a dumb example of how to use some references: In paper we run our analysis in `R` [@citeR]. We also use the `tidyverse` which was written by @thereferencecanbewhatever If we were interested in baseball data then @citeLahman could be useful.
-
-We can use maths by including latex between dollar signs, for instance $\theta$.
 
 # Results
 
