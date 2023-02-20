@@ -63,13 +63,19 @@ fig1_data %>%
   theme_light()
 ```
 
-Table 1. place it here with the table 1 from the Original paper
+Figure 3.place it here with Figure 6
 
 ```{r}
 
 
 ```
+Figure 4. place it here with Figure 7
+```{r}
 
+
+
+
+```
 Figure 2. place it here with the Figure 4 from the Original paper (@fig-billss).
 
 ```{r}
