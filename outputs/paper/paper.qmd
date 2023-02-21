@@ -37,7 +37,7 @@ In this paper, we decompose the decline in the birth rate between - and within -
 
 We next turn to a potential attributing factor for the declining U.S. birth rate after the 2007 recession. In our conclusion, we show strong evidence that the most recent group of young adults is significantly attributed to the post-2007 decline in the birth rate. This significance suggests an ongoing societal shift among the young women entering through childbearing age. Alarmingly, this societal phenomenon imposes some serious societal consequences and, therefore, should be considered at a high level. Most importantly, there are no signs of returning from the negative trend.
 
-For instance, @sec-data and @sec-first-point.
+For instance, @populationsurvey and @natalitybirthdata.
 
 # Data {#sec-data}
 
@@ -182,9 +182,21 @@ data. See the Data Appendix for specific details.",
 
 # Discussion
 
-## First discussion point {#sec-first-point}
+## Bias and Ethical Concerns
 
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this.
+As we know that this data was collected and created by other human beings just as how we are. There are some ethical concerns that could affect the accuracy of our data because humans can make mistakes, they can make decisions based on their preferences, which can affect the whole dataset. So, this analysis is only valid based on our dataset, which can be modified if the original dataset was changed.
+
+According to rhe original data provided which shows different races such as White, Black, and Hispanic. They have included Hispanic based on all colours, which kind of erases the identity of Black and Indigenous Hispanic people. This tends to be a bit racism because the information provided on the data did not specifically indicate whether or not the Hispanic category includes everyone that identifies as Hispanic, or is it just people that look like Hispanic.
+
+## Data Collection Concerns
+
+This dataset tends to collect a huge data information of population among the people from the United States, and considers lots of factors from race, birth rates by age, student debts, etc. Having too much information mean that when the data was collected there is a possibility of human error, calculation error, and chances of small modification of data due format of reporting error. So, the way how the data was collected can have lots of problem because people can make mistakes easily.
+
+## Causes and Impacts of Declining Birth Rates
+
+### Age
+
+When it comes to the age of all the population from the United States and comparing it from the past to now. It shows that more people tend to have kids much later than before. While, less people have kids earlier than the past. During the past, more people tend to have kids much earlier. There are several reasons why more people had kids at early age because back then people use to get marry much earlier, and many people were unemployed or doing a job for self-employment, which was not even an educated or professional job. The modern lifestyle that is being adapted in the past few decades tends to make people to focus on all other areas of life, which makes them to marry much later, and have kids late. Nowadays, many marriages happen at the age of late 20s or early 30s, while they tend to have their first child around early to mid 30s.
 
 ## Second discussion point
 
