@@ -13,11 +13,8 @@ number-sections: true
 bibliography: references.bib
 ---
 
-```{r}
-#| include: false
-#| warning: false
-#| message: false
-
+```{r setup, include = FALSE}
+#Load libraries
 library(tidyverse)
 library(palmerpenguins)
 library(knitr)
@@ -29,25 +26,33 @@ options(dplyr.summarise.inform = FALSE)
 
 # Introduction
 
-To measure birth rates, the National Center for Health Statistics (NCHS) aggregates data on birth rates for women by age, race, education level, and other factors; the aggregated data for a particular year is the total number of births per 1000 women. Each year NCHS measures birth rates nationwide and analyzes the data to make insights into societal phenomena. For instance, in 1997, NCHS published a paper on how a mother's education level influences the birth rate. In the paper, NCHS asserted that there is a negative correlation between a mother's education level and birth rate. Their study found a direct relationship between years of education and birth rates, with the highest birth rates among women with the lowest educational attainment (cite).
+To measure birth rates, the National Center for Health Statistics (NCHS) aggregates data on birth rates for women by age, race, education level, and other factors; the aggregated data for a particular year is the total number of births per 1000 women. Each year NCHS measures birth rates nationwide and analyzes the data to make insights into societal phenomena. For instance, in 1997, NCHS published a paper on how a mother's education level influences the birth rate. In the paper, NCHS asserted that there is a negative correlation between a mother's education level and birth rate. Their study found a direct relationship between years of education and birth rates, with the highest birth rates among women with the lowest educational attainment @citeNCHS.
 
-Figure 1 depicts U.S. birth rate trends over the last 40 years. In the figure, we can see that the trend is fluctuating relatively stable. However, during the post-2007 recession, it takes a steep decline with no signs of coming back up.
+In this paper, we gathered data from the American Economic Association, National Center for Health Statistics, and the U.S. population data. With gathered data, we generated graphs and tables to observe the trend in birth rates of different demographics, using R [@citeR]. We also uploaded and cleaned data using R [@citeR], tidyr [@citetidyr], dplyr [@citedplyr], tidyverse [@citetidyverse], and haven [@citehaven] packages. Figures and tables were created with knitr [@citeknit], ggplot2 [@citeggplot], kableExtra [@citekable], and dplyr [@citedplyr].  
 
-In this paper, we decompose the decline in the birth rate between - and within - demographic groups. We then argue that any other economic, policy or social factor that has changed since 2007 does not contribute much to the decline.
+@fig-1 depicts U.S. birth rate trends over the last 40 years. In Figure 1, we can see that the trend is fluctuating relatively stable. However, during the post-2007 recession, it takes a steep decline with no sign of turning back.
 
-We next turn to a potential attributing factor for the declining U.S. birth rate after the 2007 recession. In our conclusion, we show strong evidence that the most recent group of young adults is significantly attributed to the post-2007 decline in the birth rate. This significance suggests an ongoing societal shift among the young women entering through childbearing age. Alarmingly, this societal phenomenon imposes some serious societal consequences and, therefore, should be considered at a high level. Most importantly, there are no signs of returning from the negative trend.
+In @sec-first-point, we discuss how decomposing the decline in the birth rate between demographic groups helps us to have a clearer picture of the topic. As can be seen in @fig-2 and @fig-3
 
-For instance, @sec-data and @sec-first-point.
+@sec-second-point, briefly discusses the empirical relationship between birth rates and economics and policy factors. We then argue that other economic, policy or social factors that have changed since 2007 do not contribute much to the decline.
+
+@sec-third-point, presents a potential attributing factor for the declining U.S. birth rate after the 2007 recession. We show strong evidence that suggests the most recent group of young adults is a significant driver of the post-2007 decline in the birth rate. This significance suggests that the societal shifts among young women moving through childbearing age are an ongoing trend.
+
+We conclude the paper by raising a concern that this societal phenomenon imposes some severe societal consequences and, therefore, should be considered at a high level. Most importantly, we need to consider what it means for the nation's well-being when there are no signs of returning from the negative trend in birth rates. 
+\newpage
 
 # Data {#sec-data}
 
 # Results {#sec-results}
+
 Figure 1. Trends in US birth rates over the past 40 years show a steep decline in the birth rate during the post-2007 recession (@fig-1).
 
 ```{r}
+#| echo: false
+#| warning: false
+#| message: false
 #| label: fig-1
 #| fig-cap: Trends in U.S. Birth rates of 1000 women between age 14 to 44 from 1980 to 2020
-#| echo: false
 fig1_data <- read.csv(here::here("inputs/data/fig_1.csv"))
 fig1_data %>%
   ggplot(aes(x = year,
@@ -63,61 +68,99 @@ fig1_data %>%
   theme_light()
 ```
 
-Figure 3.place it here with Figure 6
+Figure 2.place it here with Figure 6 (@fig-2).
 
 ```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-2
+#| fig-cap: Race and Ethnicity (ages 15-19 from 2000 to 2020)
+
 
 
 ```
-Figure 4. place it here with Figure 7
+
+Figure 3. place it here with Figure 7 (@fig-3).
+
 ```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-3
+#| figh-cap: Race and Ethnicity (ages 20-24 from 2000 to 2020)
+
 
 
 
 
 ```
-Figure 2. place it here with the Figure 4 from the Original paper (@fig-billss).
+
+Figure 4. place it here with the Figure 4 from the Original paper (@fig-4).
+
+Figure 5. place it here with the Figure 2-a from the Original paper (@fig-5).
 
 ```{r}
-#| label: fig-billss
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-5
 #| fig-cap: Relationship between Changes in Birth Rates 2004-2008 to 2014-2019
-#| echo: false
-#| fig-width: 8
-#| fig-height: 4
 
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = "none") +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
+# Reading in the data.
+birth = read_csv(here::here("inputs/data/fig_1.csv"))
+
+birth1 = read_dta(here::here("inputs/data/nchs/nchs_births_pop_1990_2019.dta"))
+
+
+
+birth1 <- birth1 %>%
+  group_by(year) %>%
+  select(-c(stname)) %>% 
+  summarise(across(everything(),sum))
+
+birth1 <- birth1 %>% 
+  mutate(birthrate1519 = numbirth1519/pop1519*1000) %>% 
+  mutate(birthrate2024 = numbirth2024/pop2024*1000) %>% 
+  mutate(birthrate2529 = numbirth2529/(pop25+pop26+pop27+pop28+pop29)*1000) %>% 
+  mutate(birthrate3034 = numbirth3034/(pop30+pop31+pop32+pop33+pop34)*1000) %>% 
+  mutate(birthrate3539 = numbirth3539/(pop35+pop36+pop37+pop38+pop39)*1000) %>% 
+  mutate(birthrate4044 = numbirth4044/(pop40+pop41+pop42+pop43+pop44)*1000)
+
+birth1 <- birth1 %>% 
+  select(year, birthrate1519, birthrate2024, birthrate2529, birthrate3034, birthrate3539, birthrate4044) %>%
+  pivot_longer(-c(year),
+               names_to = "agegroup",
+               values_to = "birthrate"
+  )
+
+birth1<-birth1 %>% 
+  mutate(agegroup = as.character(str_replace(agegroup, "birthrate", "")))
+
+birth1 %>% 
+ggplot(mapping = aes(x = year, y = birthrate, color = agegroup)) + 
+  geom_line()  +
+  labs(
+    title = "Trends in Birth Rates by Age Group",
+    x = "Year",
+    y = "birthrate",
+    caption = "Source: CDC Vital Statistics Births Reports.",
+    color = "Age Group"
+  ) +
+  scale_x_continuous(limits=c(1991, 2020), breaks=seq(1991, 2020, by = 8)) +
+  scale_y_continuous(limits = c(0,125), breaks = seq(0,125, by=20)) +
+  theme_light()
 ```
 
-Figure 3. place it here with the Figure 2-a from the Original paper
+Figure 6. Children Ever Born by Mother's Age and Birth Cohort (@fig-6).
 
 ```{r}
-#| label: fig-billsss
-#| fig-cap: Trends in Birth Rates by Population subgroup Five-year age group
 #| echo: false
-#| fig-width: 8
-#| fig-height: 4
+#| warning: false
+#| message: false
+#| label: fig-6
+#| fig-cap: Children Ever Born by Mother's Age and Brith Cohort
 
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = "none") +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
-```
-
-Figure 4.
-
-```{r}
-#| label: fig-4
-#| fig-cap: cohorts
-#| echo: false
 nch_cohot_data <- read_dta(here::here("inputs/data/nchs/nchs_cohort_analysis.dta"))
 agecomp_data <- read_dta(here::here("inputs/data/pop/agecomp-seer.dta"))
 
@@ -167,14 +210,14 @@ fig5_data %>%
   geom_line()  +
   labs(
     title = "Children Ever Born by Mother’s Age and Birth Cohort",
-    x = "ages",
-    y = "cumulative birthrate",
-    caption = "Source: Authors’ calculations based on NCHS Vital Statistics birth microdata and CDC SEER population
-data. See the Data Appendix for specific details.",
+    x = "Ages",
+    y = "Cumulative birthrate",
+    caption = "Source: NCHS Vital Statistics birth microdata and CDC SEER population data.",
     color = "Birth cohorts"
   ) +
-  scale_x_continuous(limits=c(15, 44), breaks=seq(15, 44, by = 2)) +
-  theme_light()
+  scale_x_continuous(limits=c(15, 44), breaks=seq(15, 44, by = 3)) +
+  theme_minimal()+
+  theme(legend.position = "right")
 
 ```
 
@@ -182,17 +225,15 @@ data. See the Data Appendix for specific details.",
 
 # Discussion
 
-## First discussion point {#sec-first-point}
+## Birth Rates by Demographic Groups {#sec-first-point}
 
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this.
 
-## Second discussion point
+## Economic and Policy Factors {#sec-second-point}
 
-## Third discussion point
+## A Potential Explanation: Shifting Priorities {#sec-third-point} 
 
 ## Weaknesses and next steps
 
-Weaknesses and next steps should also be included.
 
 \newpage
 
