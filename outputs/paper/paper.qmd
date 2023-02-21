@@ -231,22 +231,9 @@ fig5_data %>%
 
 ## Birth Rates by Demographic Groups {#sec-first-point}
 
-
 ## Economic and Policy Factors {#sec-second-point}
 
 ## A Potential Explanation: Shifting Priorities {#sec-third-point} 
-
-## Weaknesses and next steps
-
-
-\newpage
-
-\appendix
-
-# Appendix {.unnumbered}
-
-# Additional details
-## A Potential Explanation: Shifting Priorities {#sec-third-point}
 
 ## Weakness and Next steps
 
