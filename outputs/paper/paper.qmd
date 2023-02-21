@@ -4,12 +4,19 @@ author:
   - Sagith Kalaichelvam
   - Youngho Kim
   - Joseph Chung
-thanks: "Code and data are available at: https://github.com/UtopianYoungChung/Paper2.git"
+thanks: "Code, data and reproduction package are available at: https://github.com/UtopianYoungChung/Paper2 and reproduction package link to be updated"
 date: "`r Sys.time()`"
 date-format: "D MMMM YYYY"
-abstract: "This paper explores several potential explanatory factors for the steep decline in birth rates in the United States between 2007 and 2020. The decline in U.S. birthrates offers some significant insights into U.S. society. Changes in birth patterns among recent young adult women moving through the childbearing age group can be directly related to the decline in birth rate from a purely statistical standpoint. We provide evidence that the steep drop in birth rates could be attributed to recent young adults' shifting interests. These shifting priorities represent changes in young adults' preferences regarding having children and aspirations for life. Resonating with the original paper, we conclude with a brief discussion of the implications of the declining birth rate in the United States and its impact on society as an entirety."
-format: pdf
-number-sections: true
+format: 
+  pdf:
+    documentclass: article
+    geometry: margin = 1in
+    abstract: "This paper explores several potential explanatory factors for the steep decline in birth rates in the United States between 2007 and 2020. The decline in U.S. birthrates offers some significant insights into U.S. society. Changes in birth patterns among recent young adult women moving through the childbearing age group can be directly related to the decline in birth rate from a purely statistical standpoint. We provide evidence that the steep drop in birth rates could be attributed to recent young adults' shifting interests. These shifting priorities represent changes in young adults' preferences regarding having children and aspirations for life. Resonating with the original paper, we conclude with a brief discussion of the implications of the declining birth rate in the United States and its impact on society as an entirety."
+    toc: true
+    number-sections: true
+    colorlinks: true
+    lot: true
+    lof: true
 bibliography: references.bib
 ---
 
@@ -43,6 +50,19 @@ We conclude the paper by raising a concern that this societal phenomenon imposes
 \newpage
 
 # Data {#sec-data}
+
+## Data Source and Collection 
+
+The datasets for this paper were obtained from the paper "The Puzzle of Falling US Birth Rates since the Great Recession" [@citepaper], a paper from the Journal of Economic Perspectives [@citewebsite]. The data used by the paper was compiled by various sources such as the NCHS Natality Database [@citenchs], CDC SEER [@citecdcseer], the Current Population Survey Annual Social and Economic Supplement (CPS ASEC) [@citeipums], the New York Federal Reserve [@citefed], and the Integrated Public Use Microdata Series (IPUMS) [@citeipums]. The paper and datasets were published during the year 2022. All of these various sources are providing a lot of useful information which are shown throughout all of the figures within this paper we created. For example, the sources collected lots of raw data such as population of people giving births, race, lifestyle factors, age of parent when giving birth, etc. So, all of these information were collected from these various sources, and written into the paper "The Puzzle of Falling US Birth Rates since the Great Recession" [@citepaper]. Which was then analyzed in our paper with our version of analysis. 
+
+
+## Data Cleaning 
+
+Most of data used in this paper were cleaned to get the most accurate information, and remove any unneccessary information to be outputted in this paper. Data was cleaned to remove data of some years, age group, race category, etc. So, that the revised figures can provide the most accurate information according to our analysis, and not have any information that is unrelevant to our analysis. 
+
+## Data Modification
+
+## Data Visualization
 
 # Results {#sec-results}
 
@@ -155,6 +175,9 @@ ggplot(mapping = aes(x = year, y = birthrate, color = agegroup)) +
   scale_y_continuous(limits = c(0,125), breaks = seq(0,125, by=20)) +
   theme_light()
 ```
+@fig-5 shows lots of important information about when people tend to have kids at certain age over the timeframe from 1990 to 2020. Based on the graph, the data shows that more people are having kids after the age 30 during this present time. In the past, most people tend to have kids before the age 30. Around the years 2000 to 2005, that is when the lifestyle started to change where people tend to either get marry later, or have kids later which is why the trend of birth rates in age 30 and up are going higher from the 2000's. While, the births before the age of 30 tends to slow down and decreasing over time from the 2000's. According to the graph, maybe in another 100 years, we can expect that most birth rates can happen around the age 40-44. 
+
+
 
 Figure 6. Children Ever Born by Mother's Age and Birth Cohort (@fig-6).
 
