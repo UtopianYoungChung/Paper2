@@ -53,6 +53,7 @@ Figure 1. Trends in US birth rates over the past 40 years show a steep decline i
 #| message: false
 #| label: fig-1
 #| fig-cap: Trends in U.S. Birth rates of 1000 women between age 14 to 44 from 1980 to 2020
+
 fig1_data <- read.csv(here::here("inputs/data/fig_1.csv"))
 fig1_data %>%
   ggplot(aes(x = year,
@@ -67,6 +68,9 @@ fig1_data %>%
   )  +
   theme_light()
 ```
+
+@fig-1 shows that overtime, the number of births in the United States is dropping steadily, while it slightly went up on peak around 1990, 2001, and 2007. Most likely the hikes of going up during these years might have been into other factors that made more people among the selected population to have kids. After 2007, the number of births drastically dropped a lot. Nowadays, among 1,000 women from age 15 to 44, only about 56 births will occur. While, in the past around the 1980s, and 1990s, the number of births was around 65 to 70 range. The line in the graph shows that in the near future much lower amount of people will have kids, and this can be due to other factors from their lifestyle which is making them to decide to not have more kids.
+
 
 Figure 2.place it here with Figure 6 (@fig-2).
 
@@ -242,6 +246,26 @@ fig5_data %>%
 # Appendix {.unnumbered}
 
 # Additional details
+## A Potential Explanation: Shifting Priorities {#sec-third-point}
+
+## Weakness and Next steps
+
+### Bias and Ethical Concerns
+
+As we know that this data was collected and created by other human beings just as how we are. There are some ethical concerns that could affect the accuracy of our data because humans can make mistakes, they can make decisions based on their preferences, which can affect the whole dataset. So, this analysis is only valid based on our dataset, which can be modified if the original dataset was changed.
+
+According to rhe original data provided which shows different races such as White, Black, and Hispanic. They have included Hispanic based on all colours, which kind of erases the identity of Black and Indigenous Hispanic people. This tends to be a bit racism because the information provided on the data did not specifically indicate whether or not the Hispanic category includes everyone that identifies as Hispanic, or is it just people that look like Hispanic.
+
+### Data Collection Concerns
+
+This dataset tends to collect a huge data information of population among the people from the United States, and considers lots of factors from race, birth rates by age, student debts, etc. Having too much information mean that when the data was collected there is a possibility of human error, calculation error, and chances of small modification of data due format of reporting error. So, the way how the data was collected can have lots of problem because people can make mistakes easily.
+
+### Causes and Impacts of Declining Birth Rates
+
+### Age
+
+When it comes to the age of all the population from the United States and comparing it from the past to now. It shows that more people tend to have kids much later than before. While, less people have kids earlier than the past. During the past, more people tend to have kids much earlier. There are several reasons why more people had kids at early age because back then people use to get marry much earlier, and many people were unemployed or doing a job for self-employment, which was not even an educated or professional job. The modern lifestyle that is being adapted in the past few decades tends to make people to focus on all other areas of life, which makes them to marry much later, and have kids late. Nowadays, many marriages happen at the age of late 20s or early 30s, while they tend to have their first child around early to mid 30s.
+
 
 \newpage
 
