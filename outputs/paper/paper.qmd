@@ -28,17 +28,18 @@ options(dplyr.summarise.inform = FALSE)
 
 To measure birth rates, the National Center for Health Statistics (NCHS) aggregates data on birth rates for women by age, race, education level, and other factors; the aggregated data for a particular year is the total number of births per 1000 women. Each year NCHS measures birth rates nationwide and analyzes the data to make insights into societal phenomena. For instance, in 1997, NCHS published a paper on how a mother's education level influences the birth rate. In the paper, NCHS asserted that there is a negative correlation between a mother's education level and birth rate. Their study found a direct relationship between years of education and birth rates, with the highest birth rates among women with the lowest educational attainment @citeNCHS.
 
-In this paper, we gathered data from the American Economic Association, National Center for Health Statistics, and the U.S. population data. With gathered data, we generated graphs and tables to observe the trend in birth rates of different demographics, using R [@citeR]. We also uploaded and cleaned data using R [@citeR], tidyr [@citetidyr], dplyr [@citedplyr], tidyverse [@citetidyverse], and haven [@citehaven] packages. Figures and tables were created with knitr [@citeknit], ggplot2 [@citeggplot], kableExtra [@citekable], and dplyr [@citedplyr].  
+In this paper, we gathered data from the American Economic Association, National Center for Health Statistics, and the U.S. population data. With the gathered data, we generated graphs and tables to observe the trend in birth rates of different demographics using R [@citeR]. We also uploaded and cleaned data using R [@citeR], tidyr [@citetidyr], dplyr [@citedplyr], tidyverse [@citetidyverse], and haven [@citehaven] packages. Figures and tables were created with knitr [@citeknit], ggplot2 [@citeggplot], kableExtra [@citekable], and dplyr [@citedplyr].
 
-@fig-1 depicts U.S. birth rate trends over the last 40 years. In Figure 1, we can see that the trend is fluctuating relatively stable. However, during the post-2007 recession, it takes a steep decline with no sign of turning back.
+@fig-1 depicts U.S. birth rate trends over the last 40 years. Here, we can see that the trend is fluctuating relatively stable. However, during the post-2007 recession, it takes a steep decline with no sign of returning. We start our journey to explore potential explanations for the decline.
 
-In @sec-first-point, we discuss how decomposing the decline in the birth rate between demographic groups helps us to have a clearer picture of the topic. As can be seen in @fig-2 and @fig-3
+In @sec-first-point, we discuss how decomposing the decline in the birth rate between demographic groups offers us a clearer picture of the topic. As shown in @fig-2 and @fig-3, by dissecting the demographics into age groups and ethnicity groups, we notice that there is a significant amount of decrease among the white ethnicity women between ages 15 and 24, while other ethnic groups are showing a minor decrease.
 
 @sec-second-point, briefly discusses the empirical relationship between birth rates and economics and policy factors. We then argue that other economic, policy or social factors that have changed since 2007 do not contribute much to the decline.
 
 @sec-third-point, presents a potential attributing factor for the declining U.S. birth rate after the 2007 recession. We show strong evidence that suggests the most recent group of young adults is a significant driver of the post-2007 decline in the birth rate. This significance suggests that the societal shifts among young women moving through childbearing age are an ongoing trend.
 
-We conclude the paper by raising a concern that this societal phenomenon imposes some severe societal consequences and, therefore, should be considered at a high level. Most importantly, we need to consider what it means for the nation's well-being when there are no signs of returning from the negative trend in birth rates. 
+We conclude the paper by raising a concern that this societal phenomenon imposes some severe societal consequences and, therefore, should be considered at a high level. Most importantly, we need to consider what it means for the nation's well-being when there are no signs of returning from the negative trend in birth rates.
+
 \newpage
 
 # Data {#sec-data}
@@ -70,7 +71,6 @@ fig1_data %>%
 ```
 
 @fig-1 shows that overtime, the number of births in the United States is dropping steadily, while it slightly went up on peak around 1990, 2001, and 2007. Most likely the hikes of going up during these years might have been into other factors that made more people among the selected population to have kids. After 2007, the number of births drastically dropped a lot. Nowadays, among 1,000 women from age 15 to 44, only about 56 births will occur. While, in the past around the 1980s, and 1990s, the number of births was around 65 to 70 range. The line in the graph shows that in the near future much lower amount of people will have kids, and this can be due to other factors from their lifestyle which is making them to decide to not have more kids.
-
 
 Figure 2.place it here with Figure 6 (@fig-2).
 
@@ -233,7 +233,7 @@ fig5_data %>%
 
 ## Economic and Policy Factors {#sec-second-point}
 
-## A Potential Explanation: Shifting Priorities {#sec-third-point} 
+## A Potential Explanation: Shifting Priorities {#sec-third-point}
 
 ## Weakness and Next steps
 
@@ -252,7 +252,6 @@ This dataset tends to collect a huge data information of population among the pe
 ### Age
 
 When it comes to the age of all the population from the United States and comparing it from the past to now. It shows that more people tend to have kids much later than before. While, less people have kids earlier than the past. During the past, more people tend to have kids much earlier. There are several reasons why more people had kids at early age because back then people use to get marry much earlier, and many people were unemployed or doing a job for self-employment, which was not even an educated or professional job. The modern lifestyle that is being adapted in the past few decades tends to make people to focus on all other areas of life, which makes them to marry much later, and have kids late. Nowadays, many marriages happen at the age of late 20s or early 30s, while they tend to have their first child around early to mid 30s.
-
 
 \newpage
 
