@@ -46,8 +46,11 @@ Figure 1. Trends in US birth rates over the past 40 years show a steep decline i
 
 ```{r}
 #| label: fig-1
-#| fig-cap: Trends in U.S. Birth rates of 1000 women between age 14 to 44 from 1980 to 2020
+#| fig-cap: Trends in U.S. Birth rates of 1000 women between age 15 to 44 from 1980 to 2020
+#| messages: false
 #| echo: false
+#| warning: false
+#| 
 fig1_data <- read.csv(here::here("inputs/data/fig_1.csv"))
 fig1_data %>%
   ggplot(aes(x = year,
@@ -62,17 +65,22 @@ fig1_data %>%
   )  +
   theme_light()
 ```
+@fig-1 shows that overtime, the number of births in the United States is dropping steadily, while it slightly went up on peak around 1990, 2001, and 2007. Most likely the hikes of going up during these years might have been into other factors that made more people among the selected population to have kids. After 2007, the number of births drastically dropped a lot. Nowadays, among 1,000 women from age 15 to 44, only about 56 births will occur. While, in the past around the 1980s, and 1990s, the number of births was around 65 to 70 range. The line in the graph shows that in the near future much lower amount of people will have kids, and this can be due to other factors from their lifestyle which is making them to decide to not have more kids.
+
 
 Figure 3.place it here with Figure 6
 
 ```{r}
-
+#| messages: false
+#| echo: false
+#| warning: false
 
 ```
 Figure 4. place it here with Figure 7
 ```{r}
-
-
+#| messages: false
+#| echo: false
+#| warning: false
 
 
 ```
@@ -81,7 +89,9 @@ Figure 2. place it here with the Figure 4 from the Original paper (@fig-billss).
 ```{r}
 #| label: fig-billss
 #| fig-cap: Relationship between Changes in Birth Rates 2004-2008 to 2014-2019
+#| messages: false
 #| echo: false
+#| warning: false
 #| fig-width: 8
 #| fig-height: 4
 
@@ -99,7 +109,9 @@ Figure 3. place it here with the Figure 2-a from the Original paper
 ```{r}
 #| label: fig-billsss
 #| fig-cap: Trends in Birth Rates by Population subgroup Five-year age group
+#| messages: false
 #| echo: false
+#| warning: false
 #| fig-width: 8
 #| fig-height: 4
 
@@ -117,7 +129,9 @@ Figure 4.
 ```{r}
 #| label: fig-4
 #| fig-cap: cohorts
+#| messages: false
 #| echo: false
+#| warning: false
 nch_cohot_data <- read_dta(here::here("inputs/data/nchs/nchs_cohort_analysis.dta"))
 agecomp_data <- read_dta(here::here("inputs/data/pop/agecomp-seer.dta"))
 
