@@ -65,6 +65,7 @@ We have included mainly all datasets and variables that are very important for o
 
 ## Data Visualization
 
+Most of the figures shows lots of visualization of the data. We can easily expect that the birth rates is declining over time within the United States due to lots of other factors that is impacting the decision of people to have more kids. When it comes to race, there are lots of data showing some useful information to visualize. Overall, black people tends to have lower birth rates than Hispanic, and white people. Hispanic has the highest birth rates, while while people is the second highest. But all races are showing a down trendline that the birth rates are going down over time which can be coming from other factors.When it comes to factors like child care expenses, it shows that people with lower expense tends to have low birth rates, while more expense tends to have more birth rates. When the rental housing costs is high, the number of birth rates tends to go down, the same for the situation in student loan debt. When it comes into the figures of different races, we decided to focus on age groups such as 15-19, and 20-24 because we believe that this age category has more useful information since we know that in the past, people tend to have kids much earlier than before due to having marriage at an early age. The birth rates by different races in the age group 15-19 has drastically decrease over time when comparing to the age group 20-24. This is because less people are getting marry before age 20, and having kids before age 20.
 
 \newpage
 
