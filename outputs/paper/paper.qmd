@@ -301,7 +301,7 @@ According to rhe original data provided which shows different races such as Whit
 
 This dataset tends to collect a huge data information of population among the people from the United States, and considers lots of factors from race, birth rates by age, student debts, etc. Having too much information mean that when the data was collected there is a possibility of human error, calculation error, and chances of small modification of data due format of reporting error. So, the way how the data was collected can have lots of problem because people can make mistakes easily.
 
-### Movingforward
+### Moving Forward
 
 \newpage
 
