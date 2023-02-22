@@ -1,6 +1,6 @@
 <!-- -*- mode: gfm -*- -->
 
-# The Decline in U.S Birthrates
+# The Post-2007 Declining U.S. Birth Rates imply Significant Societal Shifts in the U.S.
 
 ## Summary
 
