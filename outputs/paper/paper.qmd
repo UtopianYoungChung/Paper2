@@ -94,7 +94,9 @@ fig1_data %>%
   )  +
   theme_light()
 ```
-@fig-1 shows that overtime, the number of births in the United States is dropping steadily, while it slightly went up on peak around 1990, 2001, and 2007. Most likely the hikes of going up during these years might have been into other factors that made more people among the selected population to have kids. After 2007, the number of births drastically dropped a lot. Nowadays, among 1,000 women from age 15 to 44, only about 56 births will occur. While, in the past around the 1980s, and 1990s, the number of births was around 65 to 70 range. The line in the graph shows that in the near future much lower amount of people will have kids, and this can be due to other factors from their lifestyle which is making them to decide to not have more kids.
+@fig-1 shows that overtime, the number of births in the United States is dropping steadily, while it slightly went up on peak around 1990, 2001, and 2007. Most likely the hikes of going up during these years might have been into other factors that made more people among the selected population to have kids. After 2007, the number of births drastically dropped a lot. Nowadays, among 1,000 women from age 15 to 44, only about 56 births will occur. While, in the past around the 1980s, and 1990s, the number of births was around 65 to 70 range. The line in the graph shows that in the near future there will be much lower amount of people to have kids, and this can be due to other factors from their lifestyle which is making them to decide to not have more kids.
+
+While the figure shows the birth rate trend is going down, there are certain spikes on peak of birth rates around 1990, 2001, and 2007. There were some incidents that must have happened in the United States in those years which may have caused people to stay home more often. As we know that people that are likely to be unemployed tends to have more kids as they will more freedom during their time spent home. This allows the birth rates to be higher than usual. During these years, the Americans were facing lower opportunities in employment, and within the society [@citecatholic]. They do not have access to useful resources that improve their lifestyle in these years, so they are at home at most of the times, which encourages couples to have an interest of having more kids, which ends up increasing the birth rates for these years.
 
 
 \newpage
@@ -198,6 +200,7 @@ ggplot(mapping = aes(x = year, y = birthrate, color = agegroup)) +
 
 @fig-5 shows lots of important information about when people tend to have kids at certain age over the timeframe from 1990 to 2020. Based on the graph, the data shows that more people are having kids after the age 30 during this present time. In the past, most people tend to have kids before the age 30. Around the years 2000 to 2005, that is when the lifestyle started to change where people tend to either get marry later, or have kids later which is why the trend of birth rates in age 30 and up are going higher from the 2000's. While, the births before the age of 30 tends to slow down and decreasing over time from the 2000's. According to the graph, maybe in another 100 years, we can expect that most birth rates can happen around the age 40-44.
 
+There are drastic changes shown in @fig-5 such as age 30-44 tends to increase around the 2000s, while the ages below 30 decreases for amount of birth rates. Around the decade of 2000's or beginning of this new 21st century, there is lots of modernization from people's lifestyle to other things in Earth which is coming from several factors such as education and employment due to new innnovation and invention [@citedimock]. There are lots of new behaviour being introduced to new generation of people. So, as they get new behaviour of attiudes, that is being involved in their decisions of marriages, and when to have kids. This is why lots of people are now getting married late and/or having kids much later while comparing to the past. 
 
 \newpage
 
@@ -271,6 +274,7 @@ fig5_data %>%
 
 ```
 @fig-6 shows lots of useful information about the cumulative birth rate by mother's age in several birth cohorts from early as 1968 to late as 1997. We tend to use these years since in recent times we believe that there is enough data for these years since most of the births and living people are among these cohorts. According to @fig-6, the earlier the cohort is, then the cumulative birth rate will be really high. While, the later the cohort is, then the cumulative birth rate will be much lower. The highest cumulative birth rate is coming from the birth cohort of 1968-1972, and 1973-1977. While the lowest is coming from the 1993-1997 birth cohort.
+
 
 
 \newpage
