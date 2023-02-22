@@ -114,6 +114,56 @@ Figure 2.place it here with Figure 6 (@fig-2).
 #| message: false
 #| label: fig-2
 #| fig-cap: Race and Ethnicity (ages 15-19 from 2000 to 2020)
+birth1 = read_dta("data/nchs/nchs_births_pop_1990_2019.dta")
+
+birth1 <- birth1 %>%
+  group_by(year) %>%
+  select(-c(stname)) %>% 
+  summarise(across(everything(),sum))
+
+# getting total number of births for white people from 15 to 19 years old
+birth1$numbirthwhite15 = birth1$numbirth_lesshs_whitenh_1519 + birth1$numbirth_educ_miss_whitenh_1519 + birth1$numbirth_gtc_whitenh_1519 + birth1$numbirth_somecoll_whitenh_1519 + birth1$numbirth_hsgrad_whitenh_1519 + birth1$numbirth_ba_whitenh_1519
+
+# getting total number of births for black people from 15 to 19 years old  
+birth1$numbirthblack15 = birth1$numbirth_lesshs_blacknh_1519 + birth1$numbirth_educ_miss_blacknh_1519 + birth1$numbirth_gtc_blacknh_1519 + birth1$numbirth_somecoll_blacknh_1519 + birth1$numbirth_hsgrad_blacknh_1519 + birth1$numbirth_ba_blacknh_1519
+
+# getting total number of births for hispanics from 15 to 19 years old  
+birth1$numbirthhisp15 = birth1$numbirth_lesshs_hisp_1519 + birth1$numbirth_educ_miss_hisp_1519 + birth1$numbirth_gtc_hisp_1519 + birth1$numbirth_somecoll_hisp_1519 + birth1$numbirth_hsgrad_hisp_1519 + birth1$numbirth_ba_hisp_1519
+
+# getting total number of births for white people from 20 to 24 years old
+birth1$numbirthwhite20 = birth1$numbirth_lesshs_whitenh_2024 + birth1$numbirth_educ_miss_whitenh_2024 + birth1$numbirth_gtc_whitenh_2024 + birth1$numbirth_somecoll_whitenh_2024 + birth1$numbirth_hsgrad_whitenh_2024 + birth1$numbirth_ba_whitenh_2024
+
+# getting total number of births for black people from 20 to 24 years old
+birth1$numbirthblack20 = birth1$numbirth_lesshs_blacknh_2024 + birth1$numbirth_educ_miss_blacknh_2024 + birth1$numbirth_gtc_blacknh_2024 + birth1$numbirth_somecoll_blacknh_2024 + birth1$numbirth_hsgrad_blacknh_2024 + birth1$numbirth_ba_blacknh_2024
+
+# getting total number of births for hispanics from 20 to 24 years old  
+birth1$numbirthhisp20 = birth1$numbirth_lesshs_hisp_2024 + birth1$numbirth_educ_miss_hisp_2024 + birth1$numbirth_gtc_hisp_2024 + birth1$numbirth_somecoll_hisp_2024 + birth1$numbirth_hsgrad_hisp_2024 + birth1$numbirth_ba_hisp_2024
+
+# gets the total number of births by year, compiled nationally
+birthhist = birth1 %>%
+  filter(year >= 2000) %>%
+  group_by(year) %>% 
+  select(year,pop1544, numbirthwhite15,numbirthwhite20,numbirthhisp15,numbirthhisp20,numbirthblack15,numbirthblack20) %>%
+  summarize(sumpop = sum(pop1544),white15 = sum(numbirthwhite15), white20 = sum(numbirthwhite20), black15 = sum(numbirthblack15), black20 = sum(numbirthblack20), hisp15 = sum(numbirthhisp15), hisp20 = sum(numbirthhisp20))
+
+# gets the birth rate for each race by adding the number of births from the 15 to 19for each race, then multiplying by 10,000 and dividing by the female population
+birthhist %>%
+  mutate(whiteall = white15*10000/sumpop, blackall= black15*10000/sumpop, hispall = hisp15*10000/sumpop) %>% 
+  select(year, whiteall, blackall, hispall) %>%
+  pivot_longer(cols = c("whiteall", "blackall", "hispall"),
+               names_to = "racegroup",
+               values_to = "value"
+  ) %>%
+  ggplot(mapping = aes(x = year, y = value, color = racegroup)) +
+  geom_line() +
+  theme_minimal() +
+  scale_x_continuous(breaks = seq(2000,2020, by=2))+
+  labs(title = "birthrate for each race in age group 15 to 19",
+       x = "Year",
+       y = "Birth Rate",
+       color = "Race") +
+  scale_color_brewer(palette = "Set1", labels = c("Black (Non-Hispanic)", "Hispanic", "White (Non-Hispanic)")) +
+  theme(legend.position = "bottom")
 
 
 
@@ -131,6 +181,57 @@ Figure 3. place it here with Figure 7 (@fig-3).
 #| message: false
 #| label: fig-3
 #| fig-cap: Race and Ethnicity (ages 20-24 from 2000 to 2020)
+
+birth1 = read_dta("data/nchs/nchs_births_pop_1990_2019.dta")
+
+birth1 <- birth1 %>%
+  group_by(year) %>%
+  select(-c(stname)) %>% 
+  summarise(across(everything(),sum))
+
+# getting total number of births for white people from 15 to 19 years old
+birth1$numbirthwhite15 = birth1$numbirth_lesshs_whitenh_1519 + birth1$numbirth_educ_miss_whitenh_1519 + birth1$numbirth_gtc_whitenh_1519 + birth1$numbirth_somecoll_whitenh_1519 + birth1$numbirth_hsgrad_whitenh_1519 + birth1$numbirth_ba_whitenh_1519
+
+# getting total number of births for black people from 15 to 19 years old  
+birth1$numbirthblack15 = birth1$numbirth_lesshs_blacknh_1519 + birth1$numbirth_educ_miss_blacknh_1519 + birth1$numbirth_gtc_blacknh_1519 + birth1$numbirth_somecoll_blacknh_1519 + birth1$numbirth_hsgrad_blacknh_1519 + birth1$numbirth_ba_blacknh_1519
+
+# getting total number of births for hispanics from 15 to 19 years old  
+birth1$numbirthhisp15 = birth1$numbirth_lesshs_hisp_1519 + birth1$numbirth_educ_miss_hisp_1519 + birth1$numbirth_gtc_hisp_1519 + birth1$numbirth_somecoll_hisp_1519 + birth1$numbirth_hsgrad_hisp_1519 + birth1$numbirth_ba_hisp_1519
+
+# getting total number of births for white people from 20 to 24 years old
+birth1$numbirthwhite20 = birth1$numbirth_lesshs_whitenh_2024 + birth1$numbirth_educ_miss_whitenh_2024 + birth1$numbirth_gtc_whitenh_2024 + birth1$numbirth_somecoll_whitenh_2024 + birth1$numbirth_hsgrad_whitenh_2024 + birth1$numbirth_ba_whitenh_2024
+
+# getting total number of births for black people from 20 to 24 years old
+birth1$numbirthblack20 = birth1$numbirth_lesshs_blacknh_2024 + birth1$numbirth_educ_miss_blacknh_2024 + birth1$numbirth_gtc_blacknh_2024 + birth1$numbirth_somecoll_blacknh_2024 + birth1$numbirth_hsgrad_blacknh_2024 + birth1$numbirth_ba_blacknh_2024
+
+# getting total number of births for hispanics from 20 to 24 years old  
+birth1$numbirthhisp20 = birth1$numbirth_lesshs_hisp_2024 + birth1$numbirth_educ_miss_hisp_2024 + birth1$numbirth_gtc_hisp_2024 + birth1$numbirth_somecoll_hisp_2024 + birth1$numbirth_hsgrad_hisp_2024 + birth1$numbirth_ba_hisp_2024
+
+# gets the total number of births by year, compiled nationally
+birthhist = birth1 %>%
+  filter(year >= 2000) %>%
+  group_by(year) %>% 
+  select(year,pop1544, numbirthwhite15,numbirthwhite20,numbirthhisp15,numbirthhisp20,numbirthblack15,numbirthblack20) %>%
+  summarize(sumpop = sum(pop1544),white15 = sum(numbirthwhite15), white20 = sum(numbirthwhite20), black15 = sum(numbirthblack15), black20 = sum(numbirthblack20), hisp15 = sum(numbirthhisp15), hisp20 = sum(numbirthhisp20))
+
+# gets the birth rate for each race by adding the number of births from the 15 to 19for each race, then multiplying by 10,000 and dividing by the female population
+birthhist %>%
+  mutate(whiteall = white20*10000/sumpop, blackall= black20*10000/sumpop, hispall = hisp20*10000/sumpop) %>% 
+  select(year, whiteall, blackall, hispall) %>%
+  pivot_longer(cols = c("whiteall", "blackall", "hispall"),
+               names_to = "racegroup",
+               values_to = "value"
+  ) %>%
+  ggplot(mapping = aes(x = year, y = value, color = racegroup)) +
+  geom_line() +
+  theme_minimal() +
+  scale_x_continuous(breaks = seq(2000,2020, by=2))+
+  labs(title="birthrate for each race in age group 20 to 24",
+       x = "Year",
+       y = "Birth Rate",
+       color = "Race") +
+  scale_color_brewer(palette = "Set1", labels = c("Black (Non-Hispanic)", "Hispanic", "White (Non-Hispanic)")) +
+  theme(legend.position = "bottom")
 
 
 
@@ -294,11 +395,18 @@ grid.arrange(fig4b,fig4c,fig4d,fig4e,ncol=2,nrow=2)
 
 ```
 
+@fig-4 shows interesting relationship between changes in birthrate and other economical factors over five years period. Each marker represents a state, labeled with its two-letter abbreviation.
+
+Annual expenditures on childcare for families with children under 12 whoreport positive childcare spending rose $2,170 nationwide for the average of 2015–2019, based on data from the Current Population Survey (all dollar values throughout are measured in constant 2019 dollars). But in the cross-state correlations, places where childcare expenditures increased more did not experience a noticeable drop in birth rates. In fact, the trend shows that more increases of childcare expenditure has no significant impact on birthrate changes.
+
+Average monthly rents for a two- to three-bedroom apartment rose $124 per month (from $930 to $1,060 in 2018 dollars, a 14 percent increase) nationwide over this period. The increase was much larger in some states, like Colorado, Washington, and the District of Columbia. The data, however, do not indicate a negative association between changes in rents and changes in birth rates.
+
+We used the female-to-male median earnings ratio among full-time, year-round workers to look at women's economic opportunity. On average, the midian earning ratio rose 0.04 in the period. 12 States in which the wage ratio rose the most over this sample period did not exhibit a greater decline in the birth rate.
+
+If young adults are saddled with debt, they might not feel like they have sufficient disposable income to have a child or more children. We consider the total level of student debt per capita in a state, which has increased from $2,500 to $5,400 (in 2018 dollars), on average. The relationship between state-level student debt and the birth rate are generally flat. It indicates that increases in student debt are related to the aggregate reductions in birth rates. 
 
 \newpage
 
-
-Figure 5. place it here with the Figure 2-a from the Original paper (@fig-5).
 
 ```{r}
 #| echo: false
@@ -308,7 +416,7 @@ Figure 5. place it here with the Figure 2-a from the Original paper (@fig-5).
 #| fig-cap: Relationship between Changes in Birth Rates 2004-2008 to 2014-2019
 
 # Reading in the data.
-birth = read_csv(here::here("inputs/data/fig_1.csv"))
+
 
 birth1 = read_dta(here::here("inputs/data/nchs/nchs_births_pop_1990_2019.dta"))
 
@@ -336,6 +444,13 @@ birth1 <- birth1 %>%
 
 birth1<-birth1 %>% 
   mutate(agegroup = as.character(str_replace(agegroup, "birthrate", "")))
+birth1<-birth1 %>%  mutate(agegroup=as.character(str_replace(agegroup, "1519", "15~19")))
+birth1<-birth1 %>%  mutate(agegroup=as.character(str_replace(agegroup, "2024", "20~24")))
+birth1<-birth1 %>%  mutate(agegroup=as.character(str_replace(agegroup, "2529", "25~29")))
+birth1<-birth1 %>%  mutate(agegroup=as.character(str_replace(agegroup, "3034", "30~34")))
+birth1<-birth1 %>%  mutate(agegroup=as.character(str_replace(agegroup, "3539", "35~39")))
+birth1<-birth1 %>%  mutate(agegroup=as.character(str_replace(agegroup, "4044", "40~44")))
+
 
 birth1 %>% 
 ggplot(mapping = aes(x = year, y = birthrate, color = agegroup)) + 
@@ -402,12 +517,12 @@ fig5_data <- fig5_data %>%
 fig5_data <- fig5_data %>% 
   group_by(age_2024_year) %>% 
   mutate(cum_birthrate = cumsum(birthrate)/1000, 
-         cohort = case_when(cohort2 == 1 ~ "1968-1972",
-                                  cohort2 == 2 ~ "1973-1977",
-                                  cohort2 == 3 ~ "1978-1982",
-                                  cohort2 == 4 ~ "1983-1987",
-                                  cohort2 == 5 ~ "1988-1992",
-                                  cohort2 == 6 ~ "1993-1997"))
+         cohort = case_when(cohort2 == 1 ~ "1968-1972        1992",
+                                  cohort2 == 2 ~ "1973-1977        1997",
+                                  cohort2 == 3 ~ "1978-1982        2002",
+                                  cohort2 == 4 ~ "1983-1987        2007",
+                                  cohort2 == 5 ~ "1988-1992        2012",
+                                  cohort2 == 6 ~ "1993-1997        2017"))
 
 fig5_data <-  na.omit(fig5_data)
 fig5_data %>%
@@ -420,7 +535,7 @@ fig5_data %>%
     x = "Ages",
     y = "Cumulative birthrate",
     caption = "Source: NCHS Vital Statistics birth microdata and CDC SEER population data.",
-    color = "Birth cohorts"
+    color = "Birth cohorts   Age 20 in"
   ) +
   scale_x_continuous(limits=c(15, 44), breaks=seq(15, 44, by = 3)) +
   theme_minimal()+
