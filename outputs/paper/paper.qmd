@@ -31,6 +31,7 @@ library(knitr)
 library(ggplot2)
 library(haven)
 library(dplyr)
+library(expss)
 options(dplyr.summarise.inform = FALSE)
 ```
 
@@ -501,6 +502,21 @@ fig5_data %>%
 
 \newpage
 
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-1
+#| tbl-cap: change in birth rate by age group
+
+numbirth_2044 <- read.csv(here::here("inputs/data/educ/numbirths_educ_2044.csv"))
+numbirth_2044 %>% 
+  kable(col.name=c("Age Group","Birth Rate Chage"),booktabs = TRUE,show_col_types=FALSE,linesep="")
+```
+
+
+\newpage
 # Discussion
 
 ## Birth Rates by Demographic Groups {#sec-first-point}
