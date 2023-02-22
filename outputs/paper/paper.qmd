@@ -294,6 +294,15 @@ grid.arrange(fig4b,fig4c,fig4d,fig4e,ncol=2,nrow=2)
 
 ```
 
+@fig-4 shows interesting relationship between changes in birthrate and other economical factors over five years period. Each marker represents a state, labeled with its two-letter abbreviation.
+
+Annual expenditures on childcare for families with children under 12 whoreport positive childcare spending rose $2,170 nationwide for the average of 2015–2019, based on data from the Current Population Survey (all dollar values throughout are measured in constant 2019 dollars). But in the cross-state correlations, places where childcare expenditures increased more did not experience a noticeable drop in birth rates. In fact, the trend shows that more increases of childcare expenditure has no significant impact on birthrate changes.
+
+Average monthly rents for a two- to three-bedroom apartment rose $124 per month (from $930 to $1,060 in 2018 dollars, a 14 percent increase) nationwide over this period. The increase was much larger in some states, like Colorado, Washington, and the District of Columbia. The data, however, do not indicate a negative association between changes in rents and changes in birth rates.
+
+We used the female-to-male median earnings ratio among full-time, year-round workers to look at women's economic opportunity. On average, the midian earning ratio rose 0.04 in the period. 12 States in which the wage ratio rose the most over this sample period did not exhibit a greater decline in the birth rate.
+
+If young adults are saddled with debt, they might not feel like they have sufficient disposable income to have a child or more children. We consider the total level of student debt per capita in a state, which has increased from $2,500 to $5,400 (in 2018 dollars), on average. The relationship between state-level student debt and the birth rate are generally flat. It indicates that increases in student debt are related to the aggregate reductions in birth rates. 
 
 \newpage
 
