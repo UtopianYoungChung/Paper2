@@ -15,7 +15,7 @@ format:
     toc: true
     number-sections: true
     colorlinks: true
-    lot: true
+    lot: false
     lof: true
 bibliography: references.bib
 ---
@@ -63,6 +63,10 @@ Most of data used in this paper were cleaned to get the most accurate informatio
 
 ## Data Visualization
 
+
+\newpage
+
+
 # Results {#sec-results}
 
 Figure 1. Trends in US birth rates over the past 40 years show a steep decline in the birth rate during the post-2007 recession (@fig-1).
@@ -89,7 +93,15 @@ fig1_data %>%
   theme_light()
 ```
 
+
+\newpage
+
+
 @fig-1 shows that overtime, the number of births in the United States is dropping steadily, while it slightly went up on peak around 1990, 2001, and 2007. Most likely the hikes of going up during these years might have been into other factors that made more people among the selected population to have kids. After 2007, the number of births drastically dropped a lot. Nowadays, among 1,000 women from age 15 to 44, only about 56 births will occur. While, in the past around the 1980s, and 1990s, the number of births was around 65 to 70 range. The line in the graph shows that in the near future much lower amount of people will have kids, and this can be due to other factors from their lifestyle which is making them to decide to not have more kids.
+
+
+\newpage
+
 
 Figure 2.place it here with Figure 6 (@fig-2).
 
@@ -103,6 +115,10 @@ Figure 2.place it here with Figure 6 (@fig-2).
 
 
 ```
+
+
+\newpage
+
 
 Figure 3. place it here with Figure 7 (@fig-3).
 
@@ -119,7 +135,15 @@ Figure 3. place it here with Figure 7 (@fig-3).
 
 ```
 
+
+\newpage
+
+
 Figure 4. place it here with the Figure 4 from the Original paper (@fig-4).
+
+
+\newpage
+
 
 Figure 5. place it here with the Figure 2-a from the Original paper (@fig-5).
 
@@ -177,6 +201,10 @@ ggplot(mapping = aes(x = year, y = birthrate, color = agegroup)) +
 
 @fig-5 shows lots of important information about when people tend to have kids at certain age over the timeframe from 1990 to 2020. Based on the graph, the data shows that more people are having kids after the age 30 during this present time. In the past, most people tend to have kids before the age 30. Around the years 2000 to 2005, that is when the lifestyle started to change where people tend to either get marry later, or have kids later which is why the trend of birth rates in age 30 and up are going higher from the 2000's. While, the births before the age of 30 tends to slow down and decreasing over time from the 2000's. According to the graph, maybe in another 100 years, we can expect that most birth rates can happen around the age 40-44.
 
+
+\newpage
+
+
 Figure 6. Children Ever Born by Mother's Age and Birth Cohort (@fig-6).
 
 ```{r}
@@ -184,7 +212,7 @@ Figure 6. Children Ever Born by Mother's Age and Birth Cohort (@fig-6).
 #| warning: false
 #| message: false
 #| label: fig-6
-#| fig-cap: Children Ever Born by Mother's Age and Brith Cohort
+#| fig-cap: Children Ever Born by Mother's Age and Birth Cohort
 
 nch_cohot_data <- read_dta(here::here("inputs/data/nchs/nchs_cohort_analysis.dta"))
 agecomp_data <- read_dta(here::here("inputs/data/pop/agecomp-seer.dta"))
