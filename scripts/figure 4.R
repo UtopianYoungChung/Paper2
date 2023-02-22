@@ -4,7 +4,6 @@ library(cdlTools)
 library(tidyverse)
 library(ggplot2)
 library(haven)
-library(RGraphics)
 #04~19 birthrate data
 birth1 = read_dta("data/nchs/nchs_births_pop_1990_2019.dta")
 pop1 = read_dta("data/pop/age_race_comp_seer.dta")
@@ -92,12 +91,12 @@ fig4_data <- fig4_data %>%
 #drawing
 fig4b<-fig4_data %>% 
   ggplot(aes(x=childcare_cost*1000, y=birthrate)) +
-  geom_point()  +
+  geom_point(size=0)+
   labs(
     title = "Change in (real) childcare expenditurest",
     x = "US dollar",
     y = "birthrate") +
-  geom_text(aes(label = stname)) +
+  geom_text(aes(label = stname),size=2) +
   scale_x_continuous(limits=c(0, 5000), breaks=seq(0, 5000, by = 1000),labels = paste0("$",seq(0, 5000, by=1000))) +
   scale_y_continuous(limits = c(-20,10), breaks = seq(-20,10, by=5)) +
   geom_smooth(method="lm",se=FALSE)  +
@@ -105,12 +104,12 @@ fig4b<-fig4_data %>%
 
 fig4c <-fig4_data %>% 
   ggplot(aes(x=avg_grossrent, y=birthrate)) +
-  geom_point()  +
+  geom_point(size=0)  +
   labs(
     title = "Change in (real) rental housing costs",
     x = "US dollar",
     y = "birthrate") +
-  geom_text(aes(label = stname)) +
+  geom_text(aes(label = stname),size=2) +
   scale_x_continuous(limits=c(0, 400), breaks=seq(0, 400, by = 50),labels = paste0("$",seq(0, 400, by=50))) +
   scale_y_continuous(limits = c(-20,10), breaks = seq(-20,10, by=5)) +
   geom_smooth(method="lm",se=FALSE)  +
@@ -118,12 +117,12 @@ fig4c <-fig4_data %>%
 
 fig4d<-fig4_data %>% 
   ggplot(aes(x=fem_male_ratio, y=birthrate)) +
-  geom_point()  +
+  geom_point(size=0)  +
   labs(
     title = "Change in female-male wage ratio",
     x = "fem to male wage ratio",
     y = "birthrate")+
-  geom_text(aes(label = stname)) +
+  geom_text(aes(label = stname),size=2) +
   scale_x_continuous(limits=c(-0.08, 0.12), breaks=seq(-0.08, 0.12, by = 0.04)) +
   scale_y_continuous(limits = c(-20,10), breaks = seq(-20,10, by=5)) +
   geom_smooth(method="lm",se=FALSE)  +
@@ -131,12 +130,12 @@ fig4d<-fig4_data %>%
 
 fig4e<-fig4_data %>% 
   ggplot(aes(x=stud_loan_cap*1000, y=birthrate)) +
-  geom_point()  +
+  geom_point(size=0)  +
   labs(
     title = "Change in (real) per capita student loan debt",
     x = "US dollar",
     y = "birthrate") +
-  geom_text(aes(label = stname)) +
+  geom_text(aes(label = stname),size=2) +
   scale_x_continuous(limits=c(1000, 4500), breaks=seq(1000, 4500, by = 500),labels = paste0("$",seq(1000, 4500, by=500))) +
   scale_y_continuous(limits = c(-20,10), breaks = seq(-20,10, by=5)) +
   geom_smooth(method="lm",se=FALSE)  +
