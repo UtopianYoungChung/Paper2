@@ -15,10 +15,7 @@ library(haven)
 library(tidyverse)
 
 # Reading in the data.
-birth = read_csv("data/fig_1.csv")
-
 birth1 = read_dta("data/nchs/nchs_births_pop_1990_2019.dta")
-
 
 
 birth1 <- birth1 %>%
@@ -43,6 +40,12 @@ birth1 <- birth1 %>%
 
 birth1<-birth1 %>% 
   mutate(agegroup = as.character(str_replace(agegroup, "birthrate", "")))
+birth1<-birth1 %>%  mutate(agegroup=as.character(str_replace(agegroup, "1519", "15~19")))
+birth1<-birth1 %>%  mutate(agegroup=as.character(str_replace(agegroup, "2024", "20~24")))
+birth1<-birth1 %>%  mutate(agegroup=as.character(str_replace(agegroup, "2529", "25~29")))
+birth1<-birth1 %>%  mutate(agegroup=as.character(str_replace(agegroup, "3034", "30~34")))
+birth1<-birth1 %>%  mutate(agegroup=as.character(str_replace(agegroup, "3539", "35~39")))
+birth1<-birth1 %>%  mutate(agegroup=as.character(str_replace(agegroup, "4044", "40~44")))
 
 birth1 %>% 
 ggplot(mapping = aes(x = year, y = birthrate, color = agegroup)) + 
