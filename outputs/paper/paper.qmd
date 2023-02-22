@@ -42,7 +42,7 @@ In this paper, we gathered data from the American Economic Association, National
 
 @fig-1 depicts U.S. birth rate trends over the last 40 years. Here, we can see that the trend is fluctuating relatively stable. However, during the post-2007 recession, it takes a steep decline with no sign of returning. We start our journey to explore potential explanations for the decline.
 
-In @sec-first-point, we discuss how decomposing the decline in the birth rate between demographic groups offers us a clearer picture of the topic. As shown in @fig-2 and @fig-3, by dissecting the demographics into age groups and ethnicity groups, we notice that there is a significant amount of decrease among the white ethnicity women between ages 15 and 24, while other ethnic groups are showing a minor decrease.
+In @sec-first-point, we discuss how decomposing the decline in the birth rate between demographic groups offers us a clearer picture of the topic. As shown in @fig-2, by dissecting the demographics into age groups and ethnicity groups, we notice that there is a significant amount of decrease among the white ethnicity women between ages 15 and 24, while other ethnic groups are showing a minor decrease.
 
 @sec-second-point, briefly discusses the empirical relationship between birth rates and economics and policy factors. We then argue that other economic, policy or social factors that have changed since 2007 do not contribute much to the decline.
 
@@ -94,7 +94,9 @@ fig1_data %>%
     x = "Years",
     y = "Births per 1,000 women age 15-44",
     caption = "Source: Birth Rates collected from CDC Vital Statistics Births Reports for 2015, 2019 and 2020."
-  )  +
+  )  +  
+  geom_vline(xintercept = 2007, linetype = "dashed") +
+  geom_text(aes(x = 2007, y = 70), nudge_x = 2, nudge_y = 1, label = "2007") +
   theme_light()
 ```
 @fig-1 shows that overtime, the number of births in the United States is dropping steadily, while it slightly went up on peak around 1990, 2001, and 2007. Most likely the hikes of going up during these years might have been into other factors that made more people among the selected population to have kids. After 2007, the number of births drastically dropped a lot. Nowadays, among 1,000 women from age 15 to 44, only about 56 births will occur. While, in the past around the 1980s, and 1990s, the number of births was around 65 to 70 range. The line in the graph shows that in the near future there will be much lower amount of people to have kids, and this can be due to other factors from their lifestyle which is making them to decide to not have more kids.
@@ -110,8 +112,8 @@ While the figure shows the birth rate trend is going down, there are certain spi
 #| warning: false
 #| message: false
 #| label: fig-2
-#| fig-cap: Race and Ethnicity (ages 15-19 from 2000 to 2020)
-birth1 = read_dta(here::here("input/data/nchs/nchs_births_pop_1990_2019.dta"))
+#| fig-cap: Trend in Birthrate by Race and Ethnicity for Ages 15-19 and 20-24 from 2000 to 2020)
+birth1 = read_dta(here::here("inputs/data/nchs/nchs_births_pop_1990_2019.dta"))
 
 birth1 <- birth1 %>%
   group_by(year) %>%
@@ -154,7 +156,7 @@ fig21<-birthhist %>%
   ggplot(mapping = aes(x = year, y = value, color = racegroup)) +
   geom_line() +
   theme_minimal() +
-  scale_x_continuous(breaks = seq(2000,2020, by=2))+
+  scale_x_continuous(breaks = seq(2000,2020, by=4))+
   labs(title = "Age Group 15 to 19",
        x = "Year",
        y = "Birth Rate",
@@ -172,13 +174,16 @@ fig22<-birthhist %>%
   ggplot(mapping = aes(x = year, y = value, color = racegroup)) +
   geom_line() +
   theme_minimal() +
-  scale_x_continuous(breaks = seq(2000,2020, by=2))+
+  scale_x_continuous(breaks = seq(2000,2020, by=4))+
   labs(title="Age Group 20 to 24",
        x = "Year",
        y = "Birth Rate",
-       color = "Race") +
-  scale_color_brewer(palette = "Set1", labels = c("Black", "Hispanic", "White")) +
-  theme(legend.position = "bottom")
+       color = "Race",
+       caption = "Source: Birth Rates collected from
+                  CDC Vital Statistics Births Reports
+                  for 2015, 2019 and 2020.") +
+  scale_color_brewer(palette = "Set1") +
+  theme(legend.position = "none")
 
 
 grid.arrange(fig21,fig22,ncol=2,nrow=1)
@@ -186,7 +191,7 @@ grid.arrange(fig21,fig22,ncol=2,nrow=1)
 ```
 
 
-figure 2 shows the trend in birth rates over the period 2000-2019 in different races for two different age groups. In all race group, the birth rates starts to drop significantly after the Great Recession. In a age group of 15-19, all three race groups had similar drops on the birth rate. On the other hand in age group 20-24 the white race group showed significanat birth rate drop from 86 to 49 birth per 1000 population, where as other race groups had much less birthrate drop.
+@fig-2 shows the trend in birth rates over the period 2000-2019 in different races for two different age groups. In all race group, the birth rates starts to drop significantly after the Great Recession. In a age group of 15-19, all three race groups had similar drops on the birth rate. On the other hand in age group 20-24 the white race group showed significanat birth rate drop from 86 to 49 birth per 1000 population., where as other race groups had much less birthrate drop.
 
 
 \newpage
@@ -197,7 +202,7 @@ figure 2 shows the trend in birth rates over the period 2000-2019 in different r
 #| warning: false
 #| message: false
 #| label: fig-4
-#| fig-cap: Other Economic factors over the periods of 2004-2008 and 2014-2019
+#| fig-cap: Changes in Other Economic factors and Birth Rate over the periods of 2004-2008 and 2014-2019
 
 
 #04~19 birthrate data
@@ -289,7 +294,7 @@ fig4b<-fig4_data %>%
   ggplot(aes(x=childcare_cost*1000, y=birthrate)) +
   geom_point(size=0)+
   labs(
-    title = "childcare expenditures",
+    title = "Childcare Expenditures",
     x = "US dollar",
     y = "Birthrate") +
   geom_text(aes(label = stname),size=2) +
@@ -328,7 +333,7 @@ fig4e<-fig4_data %>%
   ggplot(aes(x=stud_loan_cap*1000, y=birthrate)) +
   geom_point(size=0)  +
   labs(
-    title = "student loan debt",
+    title = "Student Loan Debt",
     x = "US dollar",
     y = "Birthrate") +
   geom_text(aes(label = stname),size=2) +
@@ -361,7 +366,7 @@ If young adults are saddled with debt, they might not feel like they have suffic
 #| warning: false
 #| message: false
 #| label: fig-5
-#| fig-cap: Relationship between Changes in Birth Rates 2004-2008 to 2014-2019
+#| fig-cap: Trends in Birth Rates by Age Groups from 1990-2019
 
 # Reading in the data.
 
