@@ -10,7 +10,7 @@ The data for this paper can be found from the [American Economic Association](ht
 
 ### Code
 
-Reserved.
+All code was written within R. All R type of files can be access through this repository. The paper is written through Quarto type of paper in R. Any other files such as downloading data, simulation, data cleaning, and testing was written in R Script.
 
 ### Data
 
