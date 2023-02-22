@@ -51,14 +51,13 @@ We conclude the paper by raising a concern that this societal phenomenon imposes
 
 # Data {#sec-data}
 
-## Data Source and Collection 
+## Data Source and Collection
 
-The datasets for this paper were obtained from the paper "The Puzzle of Falling US Birth Rates since the Great Recession" [@citepaper], a paper from the Journal of Economic Perspectives [@citewebsite]. The data used by the paper was compiled by various sources such as the NCHS Natality Database [@citenchs], CDC SEER [@citecdcseer], the Current Population Survey Annual Social and Economic Supplement (CPS ASEC) [@citeipums], the New York Federal Reserve [@citefed], and the Integrated Public Use Microdata Series (IPUMS) [@citeipums]. The paper and datasets were published during the year 2022. All of these various sources are providing a lot of useful information which are shown throughout all of the figures within this paper we created. For example, the sources collected lots of raw data such as population of people giving births, race, lifestyle factors, age of parent when giving birth, etc. So, all of these information were collected from these various sources, and written into the paper "The Puzzle of Falling US Birth Rates since the Great Recession" [@citepaper]. Which was then analyzed in our paper with our version of analysis. 
+The datasets for this paper were obtained from the paper "The Puzzle of Falling US Birth Rates since the Great Recession" [@citepaper], a paper from the Journal of Economic Perspectives [@citewebsite]. The data used by the paper was compiled by various sources such as the NCHS Natality Database [@citenchs], CDC SEER [@citecdcseer], the Current Population Survey Annual Social and Economic Supplement (CPS ASEC) [@citeipums], the New York Federal Reserve [@citefed], and the Integrated Public Use Microdata Series (IPUMS) [@citeipums]. The paper and datasets were published during the year 2022. All of these various sources are providing a lot of useful information which are shown throughout all of the figures within this paper we created. For example, the sources collected lots of raw data such as population of people giving births, race, lifestyle factors, age of parent when giving birth, etc. So, all of these information were collected from these various sources, and written into the paper "The Puzzle of Falling US Birth Rates since the Great Recession" [@citepaper]. Which was then analyzed in our paper with our version of analysis.
 
+## Data Cleaning
 
-## Data Cleaning 
-
-Most of data used in this paper were cleaned to get the most accurate information, and remove any unneccessary information to be outputted in this paper. Data was cleaned to remove data of some years, age group, race category, etc. So, that the revised figures can provide the most accurate information according to our analysis, and not have any information that is unrelevant to our analysis. 
+Most of data used in this paper were cleaned to get the most accurate information, and remove any unneccessary information to be outputted in this paper. Data was cleaned to remove data of some years, age group, race category, etc. So, that the revised figures can provide the most accurate information according to our analysis, and not have any information that is unrelevant to our analysis.
 
 ## Data Modification
 
@@ -175,9 +174,8 @@ ggplot(mapping = aes(x = year, y = birthrate, color = agegroup)) +
   scale_y_continuous(limits = c(0,125), breaks = seq(0,125, by=20)) +
   theme_light()
 ```
-@fig-5 shows lots of important information about when people tend to have kids at certain age over the timeframe from 1990 to 2020. Based on the graph, the data shows that more people are having kids after the age 30 during this present time. In the past, most people tend to have kids before the age 30. Around the years 2000 to 2005, that is when the lifestyle started to change where people tend to either get marry later, or have kids later which is why the trend of birth rates in age 30 and up are going higher from the 2000's. While, the births before the age of 30 tends to slow down and decreasing over time from the 2000's. According to the graph, maybe in another 100 years, we can expect that most birth rates can happen around the age 40-44. 
 
-
+@fig-5 shows lots of important information about when people tend to have kids at certain age over the timeframe from 1990 to 2020. Based on the graph, the data shows that more people are having kids after the age 30 during this present time. In the past, most people tend to have kids before the age 30. Around the years 2000 to 2005, that is when the lifestyle started to change where people tend to either get marry later, or have kids later which is why the trend of birth rates in age 30 and up are going higher from the 2000's. While, the births before the age of 30 tends to slow down and decreasing over time from the 2000's. According to the graph, maybe in another 100 years, we can expect that most birth rates can happen around the age 40-44.
 
 Figure 6. Children Ever Born by Mother's Age and Birth Cohort (@fig-6).
 
@@ -257,6 +255,7 @@ fig5_data %>%
 ## Economic and Policy Factors {#sec-second-point}
 
 ## A Potential Explanation: Shifting Priorities {#sec-third-point}
+
 When it comes to the age of all the population from the United States and comparing it from the past to now. It shows that more people tend to have kids much later than before. While, less people have kids earlier than the past. During the past, more people tend to have kids much earlier. There are several reasons why more people had kids at early age because back then people use to get marry much earlier, and many people were unemployed or doing a job for self-employment, which was not even an educated or professional job. The modern lifestyle that is being adapted in the past few decades tends to make people to focus on all other areas of life, which makes them to marry much later, and have kids late. Nowadays, many marriages happen at the age of late 20s or early 30s, while they tend to have their first child around early to mid 30s.
 
 ## Weakness and Moviforward
@@ -272,7 +271,6 @@ According to rhe original data provided which shows different races such as Whit
 This dataset tends to collect a huge data information of population among the people from the United States, and considers lots of factors from race, birth rates by age, student debts, etc. Having too much information mean that when the data was collected there is a possibility of human error, calculation error, and chances of small modification of data due format of reporting error. So, the way how the data was collected can have lots of problem because people can make mistakes easily.
 
 ### Movingforward
-
 
 \newpage
 
