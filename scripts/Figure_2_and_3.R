@@ -41,8 +41,9 @@ birthhist = birth1 %>%
   select(year,pop1544, numbirthwhite15,numbirthwhite20,numbirthhisp15,numbirthhisp20,numbirthblack15,numbirthblack20) %>%
   summarize(sumpop = sum(pop1544),white15 = sum(numbirthwhite15), white20 = sum(numbirthwhite20), black15 = sum(numbirthblack15), black20 = sum(numbirthblack20), hisp15 = sum(numbirthhisp15), hisp20 = sum(numbirthhisp20))
 
+
 # gets the birth rate for each race by adding the number of births from the 15 to 19for each race, then multiplying by 10,000 and dividing by the female population
-birthhist %>%
+fig21<-birthhist %>%
   mutate(whiteall = white15*10000/sumpop, blackall= black15*10000/sumpop, hispall = hisp15*10000/sumpop) %>% 
   select(year, whiteall, blackall, hispall) %>%
   pivot_longer(cols = c("whiteall", "blackall", "hispall"),
@@ -52,16 +53,15 @@ birthhist %>%
   ggplot(mapping = aes(x = year, y = value, color = racegroup)) +
   geom_line() +
   theme_minimal() +
-  scale_x_continuous(breaks = seq(2000,2020, by=2))+
-  labs(title = "birthrate for each race in age group 15 to 19",
+  scale_x_continuous(breaks = seq(2000,2020, by=4))+
+  labs(title = "Age Group 15 to 19",
        x = "Year",
        y = "Birth Rate",
        color = "Race") +
-  scale_color_brewer(palette = "Set1", labels = c("Black (Non-Hispanic)", "Hispanic", "White (Non-Hispanic)")) +
+  scale_color_brewer(palette = "Set1", labels = c("Black", "Hispanic", "White")) +
   theme(legend.position = "bottom")
 
-# gets the birth rate for each race by adding the number of births from the 20 to 24 age group for each race, then multiplying by 10,000 and dividing by the female population
-birthhist %>%
+fig22<-birthhist %>%
   mutate(whiteall = white20*10000/sumpop, blackall= black20*10000/sumpop, hispall = hisp20*10000/sumpop) %>% 
   select(year, whiteall, blackall, hispall) %>%
   pivot_longer(cols = c("whiteall", "blackall", "hispall"),
@@ -71,10 +71,15 @@ birthhist %>%
   ggplot(mapping = aes(x = year, y = value, color = racegroup)) +
   geom_line() +
   theme_minimal() +
-  scale_x_continuous(breaks = seq(2000,2020, by=2))+
-  labs(title="birthrate for each race in age group 20 to 24",
+  scale_x_continuous(breaks = seq(2000,2020, by=4))+
+  labs(title="Age Group 20 to 24",
        x = "Year",
        y = "Birth Rate",
-       color = "Race") +
-  scale_color_brewer(palette = "Set1", labels = c("Black (Non-Hispanic)", "Hispanic", "White (Non-Hispanic)")) +
-  theme(legend.position = "bottom")
+       color = "Race",
+       caption = "Source: Birth Rates collected from CDC Vital Statistics 
+       Births Reports for 2015, 2019 and 2020.") +
+  scale_color_brewer(palette = "Set1") +
+  theme(legend.position = "none")
+
+
+grid.arrange(fig21,fig22,ncol=2,nrow=1)
