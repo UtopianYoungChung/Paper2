@@ -57,9 +57,11 @@ The datasets for this paper were obtained from the paper "The Puzzle of Falling 
 
 ## Data Cleaning
 
-Most of data used in this paper were cleaned to get the most accurate information, and remove any unneccessary information to be outputted in this paper. Data was cleaned to remove data of some years, age group, race category, etc. So, that the revised figures can provide the most accurate information according to our analysis, and not have any information that is unrelevant to our analysis.
+Most of data used in this paper were cleaned to get the most accurate information, and remove any unneccessary information to be outputted in this paper. Data was cleaned to remove data of some years, age group, race category, etc. So, that the revised figures can provide the most accurate information according to our analysis, and not have any information that is unrelevant to our analysis. From our dataset we dropped any values that are not related to the specific category, for example values like NA. We have tried to filter our data much as we can for all of the graphs to make sure that it can makes sense. 
 
 ## Data Modification
+
+We have included mainly all datasets and variables that are very important for our research question. We included variables by race, birth rates, age group, and other important factors. Lots of other variables were included such as total number of births, and birth rates. Both of these allow us to analyze the decline of births over time. We did lots of modification of the variables for this paper, which was mainly done within the age category. Generally, the original paper have age category as one thing from age 15-44. For our figures, we made several figures and chosen a specific age range. We have tried our best to divide range into categories like 15-19, 20-24, 25-34, and 35-44 through out most of the figures. We have also done modification for race by having a figure that shows the data by different race such as Black, White, and Hispanic people. Several figures had important modification to be relevant to our analysis throughout the paper.
 
 ## Data Visualization
 
