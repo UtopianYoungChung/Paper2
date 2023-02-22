@@ -22,15 +22,12 @@ bibliography: references.bib
 
 ```{r setup, include = FALSE}
 #Load libraries
-library(gridExtra)
-library(cdlTools)
 library(tidyverse)
 library(palmerpenguins)
 library(knitr)
 library(ggplot2)
 library(haven)
 library(dplyr)
-library(RGraphics)
 options(dplyr.summarise.inform = FALSE)
 ```
 
@@ -60,7 +57,7 @@ The datasets for this paper were obtained from the paper "The Puzzle of Falling 
 
 ## Data Cleaning
 
-Most of data used in this paper were cleaned to get the most accurate information, and remove any unneccessary information to be outputted in this paper. Data was cleaned to remove data of some years, age group, race category, etc. So, that the revised figures can provide the most accurate information according to our analysis, and not have any information that is unrelevant to our analysis. From our dataset we dropped any values that are not related to the specific category, for example values like NA. We have tried to filter our data much as we can for all of the graphs to make sure that it can makes sense.
+Most of data used in this paper were cleaned to get the most accurate information, and remove any unneccessary information to be outputted in this paper. Data was cleaned to remove data of some years, age group, race category, etc. So, that the revised figures can provide the most accurate information according to our analysis, and not have any information that is unrelevant to our analysis. From our dataset we dropped any values that are not related to the specific category, for example values like NA. We have tried to filter our data much as we can for all of the graphs to make sure that it can makes sense. 
 
 ## Data Modification
 
@@ -68,7 +65,10 @@ We have included mainly all datasets and variables that are very important for o
 
 ## Data Visualization
 
+Most of the figures shows lots of visualization of the data. We can easily expect that the birth rates is declining over time within the United States due to lots of other factors that is impacting the decision of people to have more kids. When it comes to race, there are lots of data showing some useful information to visualize. Overall, black people tends to have lower birth rates than Hispanic, and white people. Hispanic has the highest birth rates, while while people is the second highest. But all races are showing a down trendline that the birth rates are going down over time which can be coming from other factors.When it comes to factors like child care expenses, it shows that people with lower expense tends to have low birth rates, while more expense tends to have more birth rates. When the rental housing costs is high, the number of birth rates tends to go down, the same for the situation in student loan debt. When it comes into the figures of different races, we decided to focus on age groups such as 15-19, and 20-24 because we believe that this age category has more useful information since we know that in the past, people tend to have kids much earlier than before due to having marriage at an early age. The birth rates by different races in the age group 15-19 has drastically decrease over time when comparing to the age group 20-24. This is because less people are getting marry before age 20, and having kids before age 20.
+
 \newpage
+
 
 # Results {#sec-results}
 
@@ -95,12 +95,13 @@ fig1_data %>%
   )  +
   theme_light()
 ```
-
 @fig-1 shows that overtime, the number of births in the United States is dropping steadily, while it slightly went up on peak around 1990, 2001, and 2007. Most likely the hikes of going up during these years might have been into other factors that made more people among the selected population to have kids. After 2007, the number of births drastically dropped a lot. Nowadays, among 1,000 women from age 15 to 44, only about 56 births will occur. While, in the past around the 1980s, and 1990s, the number of births was around 65 to 70 range. The line in the graph shows that in the near future there will be much lower amount of people to have kids, and this can be due to other factors from their lifestyle which is making them to decide to not have more kids.
 
 While the figure shows the birth rate trend is going down, there are certain spikes on peak of birth rates around 1990, 2001, and 2007. There were some incidents that must have happened in the United States in those years which may have caused people to stay home more often. As we know that people that are likely to be unemployed tends to have more kids as they will more freedom during their time spent home. This allows the birth rates to be higher than usual. During these years, the Americans were facing lower opportunities in employment, and within the society [@citecatholic]. They do not have access to useful resources that improve their lifestyle in these years, so they are at home at most of the times, which encourages couples to have an interest of having more kids, which ends up increasing the birth rates for these years.
 
+
 \newpage
+
 
 Figure 2.place it here with Figure 6 (@fig-2).
 
@@ -111,9 +112,13 @@ Figure 2.place it here with Figure 6 (@fig-2).
 #| label: fig-2
 #| fig-cap: Race and Ethnicity (ages 15-19 from 2000 to 2020)
 
+
+
 ```
 
+
 \newpage
+
 
 Figure 3. place it here with Figure 7 (@fig-3).
 
@@ -130,159 +135,15 @@ Figure 3. place it here with Figure 7 (@fig-3).
 
 ```
 
-\newpage
-
-Figure 4. Other Economic factors: 2004-2008 to 2014-2019 (@fig-4).
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-#| label: fig-4
-#| figh-cap: Other Economic factors in a period of 2004-2008 and 2014-2019
-
-#04~19 birthrate data
-birth1 = read_dta(here::here("inputs/data/nchs/nchs_births_pop_1990_2019.dta"))
-pop1 = read_dta(here::here("inputs/data/pop/age_race_comp_seer.dta"))
-birth1 <- birth1 %>% 
-  filter((year>=2004 & year<=2008) | (year>=2015 & year<=2019))
-
-birth1 <- birth1 %>% 
-  subset(select=c(stname,year,numbirth1544))
-
-
-pop1<-pop1 %>% 
-  mutate(pop1544 = pop1519 + pop2034 + pop3544)%>% 
-  filter((year>=2004 & year<=2008) | (year>=2015 & year<=2019)) %>%
-  group_by(year,stname) %>%
-  select(pop1544) %>% 
-  summarise(across(everything(),sum))
-  
-fig4_data <- right_join(birth1, pop1, by=c("stname","year"))
-fig4_data <- fig4_data %>% 
-  mutate(year = case_when(year=2004 & year<=2008 ~ 2004,
-                           year>=2015 & year<=2019 ~ 2019)) %>%
-  group_by(year,stname) %>%
-  select(numbirth1544,pop1544) %>% 
-  summarise(across(everything(),sum)) %>% 
-  mutate(birthrate=numbirth1544/pop1544*1000) %>% 
-  select(-c(numbirth1544,pop1544))
-
-fig4_data <- fig4_data %>% 
-  group_by(stname) %>% 
-  mutate(birthrate = birthrate[year == 2019] - birthrate[year == 2004])
-
-#04~19 childcare cost for fig4b
-childcare_aesc=read_dta(here::here("inputs/data/long_term/childcare_asec_09_1519.dta"))
-childcare_aesc <- childcare_aesc %>% 
-  mutate(childcare_cost=child_asec)
-childcare_aesc <- childcare_aesc %>% 
-  select(year,stname,childcare_cost)
-fig4_data <- right_join(fig4_data, childcare_aesc, by=c("stname","year"))
-fig4_data <- fig4_data %>% 
-  group_by(stname) %>% 
-  mutate(childcare_cost = childcare_cost[year == 2019] - childcare_cost[year == 2004])
-
-
-#04~19 rentcost data for fig4c
-rentcost_0419=read_dta(here::here("inputs/data/long_term/longdiff-rentcost-0419.dta"))
-
-rentcost_0419 <- rentcost_0419 %>% 
-  mutate(stname = fips(rentcost_0419$statefip, to='Abbreviation')) %>%
-  group_by(stname) %>% 
-  mutate(avg_grossrent = avg_grossrent[year == 2019] - avg_grossrent[year == 2004]) %>% 
-  select(year,stname,avg_grossrent)
-
-fig4_data <- right_join(fig4_data, rentcost_0419, by=c("stname","year"))
-
-
-#04~19 wage ratio data for fig4d
-rhs_1519=read_dta(here::here("inputs/data/long_term/longdiff-RHS-1519.dta"))
-rhs_0408=read_dta(here::here("inputs/data/long_term/longdiff-RHS-0408.dta"))
-rhs<-rbind(rhs_1519, rhs_0408)
-rhs <- rhs %>% 
-  mutate(stname = fips(rhs$statefip, to='Abbreviation')) %>% 
-  mutate(fem_male_ratio=p50wage_all/p50wage_male_all) %>% 
-  select(year,stname,fem_male_ratio) %>% 
-  group_by(stname) %>% 
-  mutate(fem_male_ratio = fem_male_ratio[year == 2019] - fem_male_ratio[year == 2004])
-
-fig4_data <- right_join(fig4_data, rhs, by=c("stname","year"))
-
-#04~19 student loan data for fig4e
-std_loan=read_dta(here::here("inputs/data/long_term/nyfed-student-debt-per-capita-0419.dta"))
-
-std_loan<- std_loan %>% 
-  group_by(stname) %>% 
-  mutate(stud_loan_cap = stud_loan_cap[year == 2019] - stud_loan_cap[year == 2004])
-
-fig4_data <- right_join(fig4_data, std_loan, by=c("stname","year"))
-
-
-
-fig4_data <- fig4_data %>% 
-  head(51) %>% 
-  select(-c(year))
-
-
-#drawing
-fig4b<-fig4_data %>% 
-  ggplot(aes(x=childcare_cost*1000, y=birthrate)) +
-  geom_point(size = 0)  +
-  labs(
-    title = "Change in (real) childcare expenditurest",
-    x = "US dollar",
-    y = "birthrate") +
-  geom_text(aes(label = stname), size = 2) +
-  scale_x_continuous(limits=c(0, 5000), breaks=seq(0, 5000, by = 1000),labels = paste0("$",seq(0, 5000, by=1000))) +
-  scale_y_continuous(limits = c(-20,10), breaks = seq(-20,10, by=5)) +
-  geom_smooth(method="lm",se=FALSE, size = 0)  +
-  theme_light()
-
-fig4c <-fig4_data %>% 
-  ggplot(aes(x=avg_grossrent, y=birthrate)) +
-  geom_point(size = 0)  +
-  labs(
-    title = "Change in (real) rental housing costs",
-    x = "US dollar",
-    y = "birthrate") +
-  geom_text(aes(label = stname), size = 2) +
-  scale_x_continuous(limits=c(0, 400), breaks=seq(0, 400, by = 75),labels = paste0("$",seq(0, 400, by = 75))) +
-  scale_y_continuous(limits = c(-20,10), breaks = seq(-20,10, by=5)) +
-  geom_smooth(method="lm",se=FALSE, size = 0)  +
-  theme_light()
-
-fig4d<-fig4_data %>% 
-  ggplot(aes(x=fem_male_ratio, y=birthrate)) +
-  geom_point(size = 0)  +
-  labs(
-    title = "Change in female-male wage ratio",
-    x = "fem to male wage ratio",
-    y = "birthrate")+
-  geom_text(aes(label = stname), size = 2) +
-  scale_x_continuous(limits=c(-0.08, 0.12), breaks=seq(-0.08, 0.12, by = 0.04)) +
-  scale_y_continuous(limits = c(-20,10), breaks = seq(-20,10, by=5)) +
-  geom_smooth(method="lm",se=FALSE, size = 0)  +
-  theme_light()
-
-fig4e<-fig4_data %>% 
-  ggplot(aes(x=stud_loan_cap*1000, y=birthrate)) +
-  geom_point(size = 0)  +
-  labs(
-    title = "Change in (real) per capita student loan debt",
-    x = "US dollar",
-    y = "birthrate") +
-  geom_text(aes(label = stname), size = 2) +
-  scale_x_continuous(limits=c(1000, 4500), breaks=seq(1000, 4500, by = 750),labels = paste0("$",seq(1000, 4500, by=750))) +
-  scale_y_continuous(limits = c(-20,10), breaks = seq(-20,10, by=5)) +
-  geom_smooth(method="lm",se=FALSE, size = 0)  +
-  theme_light()
-
-
-grid.arrange(fig4b,fig4c,fig4d,fig4e,ncol=2,nrow=2)
-
-```
 
 \newpage
+
+
+Figure 4. place it here with the Figure 4 from the Original paper (@fig-4).
+
+
+\newpage
+
 
 Figure 5. place it here with the Figure 2-a from the Original paper (@fig-5).
 
@@ -297,6 +158,8 @@ Figure 5. place it here with the Figure 2-a from the Original paper (@fig-5).
 birth = read_csv(here::here("inputs/data/fig_1.csv"))
 
 birth1 = read_dta(here::here("inputs/data/nchs/nchs_births_pop_1990_2019.dta"))
+
+
 
 birth1 <- birth1 %>%
   group_by(year) %>%
@@ -338,9 +201,10 @@ ggplot(mapping = aes(x = year, y = birthrate, color = agegroup)) +
 
 @fig-5 shows lots of important information about when people tend to have kids at certain age over the timeframe from 1990 to 2020. Based on the graph, the data shows that more people are having kids after the age 30 during this present time. In the past, most people tend to have kids before the age 30. Around the years 2000 to 2005, that is when the lifestyle started to change where people tend to either get marry later, or have kids later which is why the trend of birth rates in age 30 and up are going higher from the 2000's. While, the births before the age of 30 tends to slow down and decreasing over time from the 2000's. According to the graph, maybe in another 100 years, we can expect that most birth rates can happen around the age 40-44.
 
-There are drastic changes shown in @fig-5 such as age 30-44 tends to increase around the 2000s, while the ages below 30 decreases for amount of birth rates. Around the decade of 2000's or beginning of this new 21st century, there is lots of modernization from people's lifestyle to other things in Earth which is coming from several factors such as education and employment due to new innnovation and invention [@citedimock]. There are lots of new behaviour being introduced to new generation of people. So, as they get new behaviour of attiudes, that is being involved in their decisions of marriages, and when to have kids. This is why lots of people are now getting married late and/or having kids much later while comparing to the past.
+There are drastic changes shown in @fig-5 such as age 30-44 tends to increase around the 2000s, while the ages below 30 decreases for amount of birth rates. Around the decade of 2000's or beginning of this new 21st century, there is lots of modernization from people's lifestyle to other things in Earth which is coming from several factors such as education and employment due to new innnovation and invention [@citedimock]. There are lots of new behaviour being introduced to new generation of people. So, as they get new behaviour of attiudes, that is being involved in their decisions of marriages, and when to have kids. This is why lots of people are now getting married late and/or having kids much later while comparing to the past. 
 
 \newpage
+
 
 Figure 6. Children Ever Born by Mother's Age and Birth Cohort (@fig-6).
 
@@ -410,8 +274,9 @@ fig5_data %>%
   theme(legend.position = "right")
 
 ```
-
 @fig-6 shows lots of useful information about the cumulative birth rate by mother's age in several birth cohorts from early as 1968 to late as 1997. We tend to use these years since in recent times we believe that there is enough data for these years since most of the births and living people are among these cohorts. According to @fig-6, the earlier the cohort is, then the cumulative birth rate will be really high. While, the later the cohort is, then the cumulative birth rate will be much lower. The highest cumulative birth rate is coming from the birth cohort of 1968-1972, and 1973-1977. While the lowest is coming from the 1993-1997 birth cohort.
+
+
 
 \newpage
 
@@ -437,7 +302,7 @@ According to rhe original data provided which shows different races such as Whit
 
 This dataset tends to collect a huge data information of population among the people from the United States, and considers lots of factors from race, birth rates by age, student debts, etc. Having too much information mean that when the data was collected there is a possibility of human error, calculation error, and chances of small modification of data due format of reporting error. So, the way how the data was collected can have lots of problem because people can make mistakes easily.
 
-### Movingforward
+### Moving Forward
 
 \newpage
 
