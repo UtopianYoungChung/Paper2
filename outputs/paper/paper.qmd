@@ -72,7 +72,7 @@ Figure 1. Trends in US birth rates over the past 40 years show a steep decline i
 #| warning: false
 #| message: false
 #| label: fig-1
-#| fig-cap: Trends in U.S. Birth rates of 1000 women between age 14 to 44 from 1980 to 2020
+#| fig-cap: Trends in U.S. Birth rates of 1000 women between age 15 to 44 from 1980 to 2020
 
 fig1_data <- read.csv(here::here("inputs/data/fig_1.csv"))
 fig1_data %>%
@@ -245,6 +245,8 @@ fig5_data %>%
   theme(legend.position = "right")
 
 ```
+@fig-6 shows lots of useful information about the cumulative birth rate by mother's age in several birth cohorts from early as 1968 to late as 1997. We tend to use these years since in recent times we believe that there is enough data for these years since most of the births and living people are among these cohorts. According to @fig-6, the earlier the cohort is, then the cumulative birth rate will be really high. While, the later the cohort is, then the cumulative birth rate will be much lower. The highest cumulative birth rate is coming from the birth cohort of 1968-1972, and 1973-1977. While the lowest is coming from the 1993-1997 birth cohort.
+
 
 \newpage
 
