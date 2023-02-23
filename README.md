@@ -16,8 +16,8 @@ All code was written within R. All R type of files can be access through this re
 
 The raw data set was obtained from open source: [American Economic Association](https://www.aeaweb.org/articles?id=10.1257/jep.36.1.151&ArticleSearch%5Bwithin%5D%5Barticletitle%5D=1&ArticleSearch%5Bwithin%5D%5Barticleabstract%5D=1&ArticleSearch%5Bwithin%5D%5Bauthorlast%5D=1&ArticleSearch%5Bq%5D=birth+rates&JelClass%5Bvalue%5D=0&journal=&from=a&from=j) Data and files used in this paper can be found as described below:
 
--   [/inputs/data](https://github.com/UtopianYoungChung/Paper2/data/)/ contains 'csv' extensions
+-   [/inputs/data](https://github.com/UtopianYoungChung/Paper2/tree/main/inputs/data)/ contains 'csv' extensions
 
--   [/outputs/paper/](https://github.com/UtopianYoungChung/Paper2/outputs/paper) contains 'bib' extension file (bibliography), pdf (Report paper), qmd (Main Quarto)
+-   [/outputs/paper/](https://github.com/UtopianYoungChung/Paper2/tree/main/outputs/paper) contains 'bib' extension file (bibliography), pdf (Report paper), qmd (Main Quarto)
 
 -   [/scripts/](https://github.com/UtopianYoungChung/Paper2/scripts) contains 'R' extension files (00-download_data, 00-simulation), (01-download_data), (02-data_cleaning), (04-test_data)
