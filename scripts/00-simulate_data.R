@@ -7,13 +7,16 @@
 
 
 #### Workspace setup ####
+library(gridExtra)
+library(cdlTools)
+library(RGraphics)
 library(tidyverse)
-library(dplyr)
+library(palmerpenguins)
 library(knitr)
-library(lubridate)
-library(patchwork)
-library(janitor)
-library(reshape2)
+library(ggplot2)
+library(haven)
+library(dplyr)
+options(dplyr.summarise.inform = FALSE)
 
 #### Simulate data ####
 fig1_data <- read.csv(here::here("inputs/data/fig_1.csv"))
