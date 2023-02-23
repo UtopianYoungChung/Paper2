@@ -1,9 +1,19 @@
 #### Preamble ####
-# Purpose: Clean and prepare Dataset for Paper2
-# Author: Joseph Chung
-# Date: 22 February 2023
+# Purpose: Load the data from the data section of "The Puzzle of Falling US Birth Rates since the Great Recession", from  the American Economic Journal 
+# Author: Joseph Chung, Youngho Kim, Sagith Kalaichelvam
+# Data: 22 February 2023
 # Contact: yj.chung@mail.utoronto.ca
 # License: MIT
+# Pre-requisites: 
+# - Need to have installed the tidyverse, haven and tidyr packages. 
+
+
+
+#### Workspace setup ####
+
+library(haven)
+library(tidyverse)
+
 
 
 #### Workspace setup ####
