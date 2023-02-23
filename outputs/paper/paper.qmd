@@ -4,7 +4,7 @@ author:
   - Sagith Kalaichelvam
   - Youngho Kim
   - Joseph Chung
-thanks: "Code, data and reproduction package are available at: https://github.com/UtopianYoungChung/Paper2 and https://doi.org/10.1257/jep.36.1.151"
+thanks: "Code, data are available at: https://github.com/UtopianYoungChung/Paper2 and https://doi.org/10.1257/jep.36.1.151 and replication package at: https://doi.org/10.48152/ssrp-cdf6-2r92"
 date: "`r Sys.time()`"
 date-format: "D MMMM YYYY"
 format: 
