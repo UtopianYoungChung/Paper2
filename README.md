@@ -20,4 +20,4 @@ The raw data set was obtained from open source: [American Economic Association](
 
 -   [/outputs/paper/](https://github.com/UtopianYoungChung/Paper2/tree/main/outputs/paper) contains 'bib' extension file (bibliography), pdf (Report paper), qmd (Main Quarto)
 
--   [/scripts/](https://github.com/UtopianYoungChung/Paper2/tree/main/scripts) contains 'R' extension files (00-simulation), (01-test_data)
+-   [/scripts/](https://github.com/UtopianYoungChung/Paper2/tree/main/scripts) contains 'R' extension files (00-simulate_data), (01-test_data)
