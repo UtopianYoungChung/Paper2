@@ -81,6 +81,7 @@ Most of the figures shows lots of visualization of the data. We can easily expec
 #| label: fig-1
 #| fig-cap: Trends in U.S. Birth rates of 1000 women between age 15 to 44 from 1980 to 2020
 
+fig1_data <- read.csv(here::here("inputs/data/fig_1.csv"))
 fig1_data %>%
   ggplot(aes(x = year,
              y = brate_all)) +
