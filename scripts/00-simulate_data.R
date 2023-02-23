@@ -1,19 +1,22 @@
 #### Preamble ####
-# Purpose: Simulates... [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Data: 11 February 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
+# Purpose: Clean and prepare Dataset for Paper2
+# Author: Joseph Chung
+# Date: 22 February 2023
+# Contact: yj.chung@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
 
 
 #### Workspace setup ####
 library(tidyverse)
-# [...UPDATE THIS...]
+library(dplyr)
+library(knitr)
+library(lubridate)
+library(patchwork)
+library(janitor)
+library(reshape2)
 
 #### Simulate data ####
-# [...ADD CODE HERE...]
+fig1_data <- read.csv(here::here("inputs/data/fig_1.csv"))
 
 
 
